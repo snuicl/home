@@ -33,24 +33,11 @@ const NEWS = [
     ]
   },
   {
-    type: "talk",
-    date: "September 2026",
-    title: "Keynote at the ECCV 2026 Beyond Euclidean Workshop",
-    details: "Se Young Chun gave an invited keynote at the <a href=\"https://sites.google.com/view/beyondeuclidean/home\">ECCV 2026 Beyond Euclidean Workshop</a>.",
-    image: "images/news/eccv26-keynote.jpg"
-  },
-  {
     type: "award",
     date: "August 2026",
     title: "Wongi Jeong wins a Youlchon AI Star award",
     details: "Congratulations to Wongi Jeong on receiving a Youlchon AI Star award.",
     image: "images/news/youlchon.jpg"
-  },
-  {
-    type: "people",
-    date: "June 2026",
-    title: "Three summer interns join ICL",
-    details: "Justin Yu (CS AI / EE, Stanford), Youngwook Kim (EES / CSE, SNU) and Yoonchae Choi (ECE, SNU) join ICL for summer internships."
   },
   {
     type: "paper",
@@ -88,12 +75,6 @@ const NEWS = [
     papers: [
       "Junseo Bang*, Dong Ju Mun*, Hoigi Seo, Seongmin Hong, Se Young Chun, “Triadic Dynamics Aware Diffusion Posterior Sampling for Inverse Problems: Optimizing Guidance and Stochasticity Schedules.” <a href=\"https://arxiv.org/abs/2605.26470\">report</a> <a href=\"https://mundongju.github.io/TriPS/\">project</a>"
     ]
-  },
-  {
-    type: "people",
-    date: "April 2026",
-    title: "Se Young Chun to serve as a NeurIPS 2026 Area Chair",
-    details: "Se Young Chun will serve as an Area Chair of NeurIPS 2026."
   },
   {
     type: "people",
@@ -145,12 +126,6 @@ const NEWS = [
     date: "February 2026",
     title: "Sungjin Lim wins the IPAI Best Master's Thesis Award",
     details: "Congratulations to Sungjin Lim on winning the IPAI Best Master's Thesis Award."
-  },
-  {
-    type: "people",
-    date: "January 2026",
-    title: "Three new graduate students join ICL",
-    details: "Dohyun Mah (ECE, SNU) and Chaeeun Lee (AAI, SKKU) join ICL as MS/PhD students, and Daewon Choi (Samsung DS; EEE, Yonsei) joins as an MS student."
   },
   {
     type: "people",
