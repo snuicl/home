@@ -53,7 +53,7 @@
   .th .zoom { position: absolute; right: 6px; bottom: 6px; width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,.92); box-shadow: 0 1px 3px rgba(0,0,0,.15); display: grid; place-items: center; opacity: 0; transition: opacity .15s ease; }
   .th:hover .zoom, .th:focus-visible .zoom { opacity: 1; }
   .th .zoom svg { width: 15px; height: 15px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
-  dialog.lb { max-width: min(1100px, 94vw); max-height: 92vh; padding: 0; border: 0; border-radius: 16px; overflow: hidden; background: #fff; }
+  dialog.lb { width: fit-content; max-width: min(1100px, 94vw); max-height: 92vh; padding: 0; border: 0; border-radius: 16px; overflow: hidden; background: #fff; }
   dialog.lb::backdrop { background: rgba(15,15,40,.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
   dialog.lb img { display: block; max-width: min(1100px, 94vw); max-height: calc(92vh - 64px); width: auto; height: auto; margin: 0 auto; }
   dialog.lb p { margin: 0; padding: 14px 56px 16px 20px; font-size: 14.5px; font-weight: 600; color: var(--ink); border-top: 1px solid var(--line); }
