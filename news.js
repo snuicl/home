@@ -27,7 +27,7 @@ const NEWS = [
     bg: "#f6f2fa",
     pad: "6%",
     papers: [
-      "Hoigi Seo*, Byung Hyun Lee*, Minjun Kim*, Dohyun Mah, Jongho Lee, Se Young Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” <span class=\"hl\">Spotlight</span>. <a href=\"https://arxiv.org/abs/2610.04580\">report</a> · <a href=\"https://seohoiki3215.github.io/DCAT_project_page/\">project</a>",
+      "Hoigi Seo*, Byung Hyun Lee*, Minjun Kim*, Dohyun Mah, Jongho Lee, Se Young Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” <span class=\"mini hot\">Spotlight</span> <a href=\"https://arxiv.org/abs/2610.04580\">report</a> · <a href=\"https://seohoiki3215.github.io/DCAT_project_page/\">project</a>",
       "Junseo Bang, Daewon Choi, Dong Ju Mun, Se Young Chun, “FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems.”",
       "Jinho Park, Se Young Chun, Mingoo Seok, “DictLLM: Post-training Compression of Large Language Model with Dictionary Kernels.”"
     ]
@@ -93,7 +93,6 @@ const NEWS = [
     type: "people",
     date: "April 2026",
     title: "Se Young Chun to serve as a NeurIPS 2026 Area Chair",
-    image: "images/news/neurips26.png",
     details: "Se Young Chun will serve as an Area Chair of NeurIPS 2026."
   },
   {
@@ -108,11 +107,11 @@ const NEWS = [
     title: "Seven CVPR 2026 papers, including three <span class=\"hl\">Highlights</span>",
     details: "Seven papers from ICL were accepted at CVPR 2026, and three of them were selected as Highlights.",
     papers: [
-      "Gwanghyun Kim*, Junghun J. Kim*, Suh Yoon Jeon*, Jason Park, Se Young Chun, “Human Interaction-Aware 3D Reconstruction from a Single Image.” <span class=\"hl\">Highlight</span>. <a href=\"https://arxiv.org/abs/2604.05436\">report</a> · <a href=\"https://jongheean11.github.io/HUG3D_project/\">project</a>",
-      "Hayeon Kim*, Ji Ha Jang*, Junghun J. Kim, Se Young Chun, “Uncertainty-guided Compositional Alignment with Part-to-Whole Semantic Representativeness in Hyperbolic Vision-Language Models.” <span class=\"hl\">Highlight</span>. <a href=\"https://arxiv.org/abs/2603.22042\">report</a> · <a href=\"https://jeeit17.github.io/UNCHA-project_page/\">project</a>",
+      "Gwanghyun Kim*, Junghun J. Kim*, Suh Yoon Jeon*, Jason Park, Se Young Chun, “Human Interaction-Aware 3D Reconstruction from a Single Image.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2604.05436\">report</a> · <a href=\"https://jongheean11.github.io/HUG3D_project/\">project</a>",
+      "Hayeon Kim*, Ji Ha Jang*, Junghun J. Kim, Se Young Chun, “Uncertainty-guided Compositional Alignment with Part-to-Whole Semantic Representativeness in Hyperbolic Vision-Language Models.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2603.22042\">report</a> · <a href=\"https://jeeit17.github.io/UNCHA-project_page/\">project</a>",
       "Hoigi Seo*, Byung Hyun Lee*, Jaehyun Cho, Sungjin Lim, Se Young Chun, “Erasing Thousands of Concepts: Towards Scalable and Practical Concept Erasure for Text-to-Image Diffusion Models.” <a href=\"https://arxiv.org/abs/2604.16481\">report</a> · <a href=\"https://seohoiki3215.github.io/ETC_project_page/\">project</a>",
       "Wongi Jeong*, Hoigi Seo*, Se Young Chun, “Training-free, Perceptually Consistent Low-Resolution Previews with High-Resolution Image for Efficient Workflows of Diffusion Models.” <a href=\"https://arxiv.org/abs/2604.09227\">report</a> · <a href=\"https://ignoww.github.io/Preview_project/\">project</a>",
-      "Wongi Jeong*, Kyungryeol Lee*, Hoigi Seo, Se Young Chun, “Training-free Mixed-Resolution Latent Upsampling for Spatially Accelerated Diffusion Transformers.” <span class=\"hl\">Highlight</span>. <a href=\"https://arxiv.org/abs/2507.08422\">report</a> · <a href=\"https://ignoww.github.io/RALU_project/\">project</a>",
+      "Wongi Jeong*, Kyungryeol Lee*, Hoigi Seo, Se Young Chun, “Training-free Mixed-Resolution Latent Upsampling for Spatially Accelerated Diffusion Transformers.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2507.08422\">report</a> · <a href=\"https://ignoww.github.io/RALU_project/\">project</a>",
       "Seongmin Hong*, Junghun J. Kim*, Daehyeop Kim, Insoo Chung, Se Young Chun, “DiffBMP: Differentiable Rendering with Bitmap Primitives.” <a href=\"https://arxiv.org/abs/2602.22625\">report</a> · <a href=\"https://diffbmp.com\">project</a>",
       "Jinho Park, Se Young Chun, Mingoo Seok, “AdaRadar: Rate Adaptive Spectral Compression for Radar-based Perception.” <a href=\"https://arxiv.org/abs/2603.17979\">report</a> · <a href=\"https://jp4327.github.io/adaradar/\">project</a>"
     ]
