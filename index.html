@@ -61,7 +61,8 @@
   /* ===== Hero: text left, photo right ===== */
   .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: center; padding: 64px 0 72px; border-bottom: 1px solid var(--line); min-height: min(640px, calc(100vh - 72px)); }
   .eyebrow { margin: 0 0 18px; font-size: 16px; font-weight: 600; color: var(--primary-2); }
-  .hero h1 { margin: 0; color: var(--ink); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.04em; }
+  .hero-title { margin: 0; color: var(--ink); font-size: clamp(26px, 2.6vw, 36px); line-height: 1.15; font-weight: 600; letter-spacing: -0.03em; }
+  .hl { color: #c62828; font-weight: 700; }
   .lede { margin: 28px 0 0; font-size: 17px; line-height: 1.7; color: var(--text); max-width: 56ch; }
   .lede + .lede { margin-top: 12px; }
   .affil { margin: 22px 0 0; font-size: 14.5px; color: var(--faint); max-width: 60ch; }
@@ -225,7 +226,7 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <h1>Grounded AI that sees, reasons, and acts.</h1>
+      <h2 class="hero-title">Grounded AI that sees, reasons, and acts.</h2>
       <p class="lede">ICL is rooted in computational imaging, where mathematically rigorous yet efficient optimization grounds every image in the physics of how it was measured. We carry that grounding into multimodal, multiscale representations and foundation models, designing algorithms that scale without giving up rigor. We close the loop with agents that act in the physical world and team with people, treating every input, measurement and human guidance alike, as valuable yet uncertain.</p>
       <div class="actions">
         <a class="btn primary" data-link="publications">Publications</a>
@@ -319,11 +320,11 @@ const NEWS = [
   },
   {
     type: "paper", date: "September 2026",
-    title: "Three papers accepted at NeurIPS 2026",
+    title: 'Three NeurIPS 2026 papers, including a <span class="hl">Spotlight</span>',
     details: "Three papers from ICL will appear at NeurIPS 2026, with one selected as a Spotlight.",
     image: "images/news/neurips26.png", fit: "contain", bg: "#f6f2fa", pad: "6%",
     papers: [
-      'H. Seo*, B. H. Lee*, M. Kim*, D. Mah, J. Lee, S. Y. Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” Spotlight. <a href="https://arxiv.org/abs/2610.04580">report</a> · <a href="https://seohoiki3215.github.io/DCAT_project_page/">project</a>',
+      'H. Seo*, B. H. Lee*, M. Kim*, D. Mah, J. Lee, S. Y. Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” <span class="hl">Spotlight</span>. <a href="https://arxiv.org/abs/2610.04580">report</a> · <a href="https://seohoiki3215.github.io/DCAT_project_page/">project</a>',
       'J. Bang, D. Choi, D. J. Mun, S. Y. Chun, “FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems.”',
       'J. Park, S. Y. Chun, M. Seok, “DictLLM: Post-training Compression of Large Language Model with Dictionary Kernels.”'
     ]
@@ -375,7 +376,7 @@ function openNews(i) {
   const m = document.getElementById("m-media");
   m.className = "m-media c-" + n.type;
   m.innerHTML = media(n);
-  document.getElementById("m-title").textContent = n.title;
+  document.getElementById("m-title").innerHTML = n.title;
   document.getElementById("m-date").textContent = n.date;
   document.getElementById("m-details").innerHTML = n.details;
   const ul = document.getElementById("m-papers");
