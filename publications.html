@@ -47,6 +47,8 @@
   .pub .au b { color: var(--ink); }
   .pub .ve { margin: 4px 0 0; font-size: 14px; color: var(--faint); line-height: 1.55; }
   .pub .ve i { font-style: normal; color: var(--primary-2); font-weight: 600; }
+  .pub .also { margin: 4px 0 0; font-size: 13.5px; color: var(--faint); line-height: 1.55; padding-left: 12px; border-left: 2px solid var(--line); }
+  .pub .also .tag { font-size: 11px; padding: 2px 7px; margin-left: 2px; }
   .row2 { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-items: center; }
   .tag { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
   .t-type { background: var(--soft); color: var(--text); }
@@ -161,6 +163,21 @@ function monthOf(s) {
   return 0;
 }
 
+// A workshop/abstract with the same title and authors as a journal or conference paper
+// is shown under that paper ("Also presented at ...") instead of as a separate item.
+const norm = s => s.toLowerCase().replace(/\*/g, "").replace(/[^a-z0-9]/g, "");
+function mergeWorkshops(list) {
+  const main = list.filter(p => p.type === "Journal" || p.type === "Conference");
+  return list.filter(p => {
+    if (p.type !== "Workshop & Abstract" || !p.title) return true;
+    const t = main.find(m => norm(m.title) === norm(p.title) && norm(m.authors) === norm(p.authors));
+    if (!t) return true;
+    const venue = p.rest.replace(/^Accepted at\s+/i, "").replace(/\s*\(\*+[^)]*\)/g, "").replace(/,\s*journal presentation of .*/i, " (journal presentation)").trim();
+    (t.also = t.also || []).push({ venue, badges: p.badges, links: p.links });
+    return false;
+  });
+}
+
 function parse(md) {
   const out = []; let year = "", type = "";
   md.split("\n").forEach(line => {
@@ -196,7 +213,7 @@ function render() {
   const items = PUBS.filter(p =>
     (state.type === "All" || p.type === state.type) &&
     (!state.rec || p.badges.some(b => b[0] === "hot")) &&
-    (!q || (p.title + " " + p.authors + " " + p.rest).toLowerCase().includes(q)));
+    (!q || (p.title + " " + p.authors + " " + p.rest + " " + (p.also || []).map(a => a.venue).join(" ")).toLowerCase().includes(q)));
   const years = [...new Set(items.map(p => p.year))];
   document.getElementById("years").innerHTML = '<span class="t">Year</span>' + years.map(y => `<a href="#y${y}">${y}</a>`).join("");
   if (!items.length) { document.getElementById("list").innerHTML = '<p class="empty">No publications match these filters.</p>'; return; }
@@ -211,6 +228,7 @@ function render() {
         ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
         <p class="au">${esc(p.authors).replace(/S Y Chun/g, "<b>S Y Chun</b>")}</p>
         ${p.rest ? `<p class="ve">${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b/, "$1<i>$2</i>")}</p>` : ""}
+        ${(p.also || []).map(a => `<p class="also">Also presented at ${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}</p>`).join("")}
         <div class="row2"><span class="tag t-type">${p.type}</span>
           ${p.badges.map(([k, b]) => `<span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}
           ${p.links.map(([l, u]) => `<a class="lnk l-${["paper","report","project","code","video"].includes(l) ? l : "paper"}" href="${u}" target="_blank" rel="noopener">${l[0].toUpperCase() + l.slice(1)}</a>`).join("")}
@@ -237,7 +255,7 @@ const observe = () => document.querySelectorAll(".ygroup").forEach(s => io.obser
 fetch("publications.md").then(r => r.text()).then(md => {
   // Types listed here are kept in publications.md but not shown on the page
   const HIDE = ["Domestic", "Patent"];
-  PUBS = parse(md).filter(p => !HIDE.includes(p.type));
+  PUBS = mergeWorkshops(parse(md).filter(p => !HIDE.includes(p.type)));
   const conf = PUBS.filter(p => p.type === "Conference" || p.type === "Journal").length;
   document.getElementById("summary").textContent = `${PUBS.length} items since 2004, including ${conf} journal and conference papers.`;
   buildTypes(); render(); observe();
