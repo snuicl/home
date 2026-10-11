@@ -93,6 +93,7 @@ const NEWS = [
     type: "people",
     date: "April 2026",
     title: "Se Young Chun to serve as a NeurIPS 2026 Area Chair",
+    image: "images/news/neurips26.png",
     details: "Se Young Chun will serve as an Area Chair of NeurIPS 2026."
   },
   {
