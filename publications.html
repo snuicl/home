@@ -272,7 +272,7 @@ function card(p) {
       ${medals.length ? `<div class="medals">${medals.join("")}</div>` : ""}
       ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
       <p class="au">${esc(p.authors).replace(/Se Young Chun/g, "<b>Se Young Chun</b>")}</p>
-      ${p.rest ? `<p class="ve"><span class="tp">${p.type}</span>${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}</p>` : ""}
+      ${p.rest ? `<p class="ve"><span class="tp">${p.type}</span>${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}${[...new Set(hot)].map(x => ` <span class="mini hot">${esc(x)}</span>`).join("")}</p>` : ""}
       ${(p.also || []).map(a => `<p class="also">${a.raw ? "" : "Also presented at "}${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="mini ${k}">${esc(b)}</span>`).join("")}</p>`).join("")}
       ${awards.length ? `<p class="aw">${awards.map(esc).join("<br>")}</p>` : ""}
       ${p.links.length ? `<div class="btns">${p.links.map(btn).join("")}</div>` : ""}
