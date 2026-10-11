@@ -41,26 +41,45 @@
   .ygroup > h2 { margin: 0 0 6px; color: var(--ink); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
   .count { color: var(--faint); font-size: 14px; font-weight: 500; margin-left: 8px; }
 
-  .pub { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .pub { position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .th { position: relative; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid var(--line); align-self: start; }
+  .th img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+  .th .ph-t { display: none; }
+  .th.ph { background: var(--soft); border-color: transparent; display: grid; place-items: center; }
+  .th.ph .ph-t { display: flex; flex-direction: column; align-items: center; color: var(--primary-2); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; text-align: center; padding: 0 10px; }
+  .th.ph .ph-t small { color: var(--faint); font-size: 13px; font-weight: 600; margin-top: 2px; }
+  .bd { min-width: 0; }
+  .has-medal .bd { padding-right: 132px; }
   .pub .ttl { margin: 0; color: var(--ink); font-size: 16.5px; line-height: 1.45; font-weight: 600; letter-spacing: -0.005em; }
-  .pub .au { margin: 5px 0 0; font-size: 14px; color: var(--text); line-height: 1.55; }
+  .pub .au { margin: 6px 0 0; font-size: 14px; color: var(--text); line-height: 1.55; }
   .pub .au b { color: var(--ink); }
   .pub .ve { margin: 4px 0 0; font-size: 14px; color: var(--faint); line-height: 1.55; }
   .pub .ve i { font-style: normal; color: var(--primary-2); font-weight: 600; }
+  .pub .ve .tp { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 999px; background: var(--soft); color: var(--text); font-size: 11.5px; font-weight: 700; vertical-align: 1px; }
   .pub .also { margin: 4px 0 0; font-size: 13.5px; color: var(--faint); line-height: 1.55; padding-left: 12px; border-left: 2px solid var(--line); }
-  .pub .also .tag { font-size: 11px; padding: 2px 7px; margin-left: 2px; }
-  .row2 { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-items: center; }
-  .tag { font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
-  .t-type { background: var(--soft); color: var(--text); }
-  .t-hot { background: #fdecec; color: #c62828; }
-  .t-award { background: var(--sw-yellow); color: #8a6a12; }
-  .lnk { font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 6px; color: var(--ink); }
-  .lnk:hover { text-decoration: none; filter: brightness(.96); }
-  .l-paper { background: var(--sw-blue); }
-  .l-report { background: #fce4d2; }
-  .l-project { background: var(--sw-green); }
-  .l-code { background: var(--sw-purple); }
-  .l-video { background: #f6e4ec; }
+  .mini { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; margin-left: 2px; }
+  .mini.hot { background: #fdecec; color: #c62828; }
+  .mini.award { background: var(--sw-yellow); color: #8a6a12; }
+  .pub .aw { margin: 6px 0 0; font-size: 13.5px; color: #8a6a12; font-weight: 600; line-height: 1.5; }
+
+  .medals { position: absolute; top: 20px; right: 0; display: flex; gap: 6px; }
+  .medal { width: 58px; display: flex; flex-direction: column; align-items: center; }
+  .medal svg { width: 40px; height: 48px; }
+  .medal span { margin-top: 2px; font-size: 11px; font-weight: 700; line-height: 1.1; text-align: center; }
+  .medal .rb { fill: #c62828; } .medal .disc { fill: #e0a526; } .medal .ring { fill: none; stroke: #fff4cf; stroke-width: 1.5; } .medal .star { fill: #fff4cf; }
+  .m-spotlight span, .m-highlight span, .m-oral span { color: #c62828; }
+  .m-highlight .rb { fill: #ad1457; } .m-oral .rb { fill: var(--primary-2); }
+  .m-award .rb { fill: #8a6a12; } .m-award .disc { fill: #c9a227; } .m-award span { color: #8a6a12; }
+
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .lnk { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 10px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: var(--ink); font-size: 13px; font-weight: 600; transition: border-color .15s ease, background .15s ease; }
+  .lnk svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+  .lnk:hover { text-decoration: none; border-color: currentColor; }
+  .l-paper { color: #1f4fbf; } .l-paper:hover { background: var(--sw-blue); }
+  .l-report { color: #b4501a; } .l-report:hover { background: #fce4d2; }
+  .l-project { color: #2f7d4a; } .l-project:hover { background: var(--sw-green); }
+  .l-code { color: #5a3f8f; } .l-code:hover { background: var(--sw-purple); }
+  .l-video { color: #ad1457; } .l-video:hover { background: #f6e4ec; }
   .empty { padding: 40px 0; color: var(--faint); }
   @media (max-width: 900px) {
     .toolbar { position: static; }
@@ -68,6 +87,12 @@
     .search input { width: 100%; }
     .layout { grid-template-columns: 1fr; gap: 0; }
     .years { display: none; }
+    .pub { grid-template-columns: 112px 1fr; gap: 14px; }
+    .has-medal .bd { padding-right: 0; }
+    .medals { position: static; margin: 0 0 8px; }
+    .medal { width: auto; flex-direction: row; gap: 4px; }
+    .medal svg { width: 22px; height: 26px; }
+    .th.ph .ph-t { font-size: 14px; }
   }
 </style>
 
@@ -202,6 +227,59 @@ function mergePreprints(list) {
   });
 }
 
+// ---------- one publication ----------
+const VENUE_RE = /(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA|ISBI|ICASSP|ISMRM|NSS-MIC|EMBC|ICPR|ICB|AACR|ICEIC)/;
+const JOURNAL_SHORT = [[/Transactions on Medical Imaging/, "IEEE TMI"], [/Transactions on Image Processing/, "IEEE TIP"],
+  [/Transactions on Computational Imaging/, "IEEE TCI"], [/Transactions on Biomedical Engineering/, "IEEE TBME"],
+  [/Journal of Selected Topics in Signal Processing/, "IEEE JSTSP"], [/Signal Processing Magazine/, "IEEE SPM"],
+  [/Transactions on Nuclear Science/, "IEEE TNS"], [/IEEE Access/, "IEEE Access"], [/Medical Image Analysis/, "MedIA"],
+  [/Pattern Recognition Letters/, "PRL"], [/Image and Vision Computing/, "IMAVIS"], [/Physics in Medicine and Biology/, "PMB"],
+  [/Medical Physics/, "Med. Phys."], [/Journal of Nuclear Medicine/, "JNM"], [/Theranostics/, "Theranostics"],
+  [/NeuroImage/, "NeuroImage"], [/Scientific Reports/, "Sci. Rep."], [/arXiv/, "arXiv"]];
+function venueShort(p) {
+  const w = p.rest.match(/\b(CVPR|ICCV|ECCV)\s*(Workshops|W\b)/); if (w) return w[1] + "W";
+  const m = p.rest.match(VENUE_RE); if (m) return m[1];
+  const j = JOURNAL_SHORT.find(([r]) => r.test(p.rest)); if (j) return j[1];
+  return p.type;
+}
+const ICON = {
+  paper:   '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  report:  '<path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  project: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  code:    '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
+  video:   '<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>',
+};
+const LABEL = { paper: "Paper", report: "arXiv", project: "Project", code: "Code", video: "Video" };
+const btn = ([l, u]) => { const k = ICON[l] ? l : "paper";
+  return `<a class="lnk l-${k}" href="${u}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24">${ICON[k]}</svg>${LABEL[l] || l[0].toUpperCase() + l.slice(1)}</a>`; };
+const MEDAL = (kind, label, title) => `<span class="medal m-${kind}" title="${esc(title || label)}">
+  <svg viewBox="0 0 40 48"><path class="rb" d="M12 0h7l-4 16h-7zM21 0h7l4 16h-7z"/><circle class="disc" cx="20" cy="30" r="14"/><circle class="ring" cx="20" cy="30" r="10"/><path class="star" d="m20 23 2.1 4.3 4.7.7-3.4 3.3.8 4.7-4.2-2.2-4.2 2.2.8-4.7-3.4-3.3 4.7-.7z"/></svg>
+  <span>${esc(label)}</span></span>`;
+
+function card(p) {
+  const hot = p.badges.filter(b => b[0] === "hot").map(b => b[1]);
+  const awards = p.badges.filter(b => b[0] === "award").map(b => b[1]);
+  // invitations and cover articles are listed as text but get no medal
+  const medalAwards = awards.filter(a => !/^(Invited|Cover Article|AMPC select)/i.test(a));
+  const medals = [...new Set(hot)].map(h => MEDAL(h.toLowerCase(), h)).concat(medalAwards.length ? [MEDAL("award", "Award", medalAwards.join("; "))] : []);
+  const thumb = p.thumb
+    ? `<img src="${p.thumb}" alt="" loading="lazy" onerror="this.parentNode.classList.add('ph'); this.remove()">`
+    : "";
+  return `
+  <article class="pub${medals.length ? " has-medal" : ""}">
+    <div class="th${p.thumb ? "" : " ph"}">${thumb}<span class="ph-t">${esc(venueShort(p))}<small>${p.year.split("-").pop()}</small></span></div>
+    <div class="bd">
+      ${medals.length ? `<div class="medals">${medals.join("")}</div>` : ""}
+      ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
+      <p class="au">${esc(p.authors).replace(/Se Young Chun/g, "<b>Se Young Chun</b>")}</p>
+      ${p.rest ? `<p class="ve"><span class="tp">${p.type}</span>${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}</p>` : ""}
+      ${(p.also || []).map(a => `<p class="also">${a.raw ? "" : "Also presented at "}${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="mini ${k}">${esc(b)}</span>`).join("")}</p>`).join("")}
+      ${awards.length ? `<p class="aw">${awards.map(esc).join("<br>")}</p>` : ""}
+      ${p.links.length ? `<div class="btns">${p.links.map(btn).join("")}</div>` : ""}
+    </div>
+  </article>`;
+}
+
 function parse(md) {
   const out = []; let year = "", type = "";
   md.split("\n").forEach(line => {
@@ -211,7 +289,11 @@ function parse(md) {
     if (!line.startsWith("- ")) return;
     let s = line.slice(2).trim();
     const links = [];
-    s = s.replace(/\[\[([^\]]+)\]\(([^)\s]+)\)\]/g, (_, l, u) => { links.push([l.trim().toLowerCase(), u]); return ""; });
+    let thumb = "";
+    s = s.replace(/\[\[([^\]]+)\]\(([^)\s]+)\)\]/g, (_, l, u) => {
+      const k = l.trim().toLowerCase();
+      if (k === "image" || k === "thumbnail" || k === "figure") thumb = u; else links.push([k, u]);
+      return ""; });
     const tm = s.match(/[“"](.+?),?[”"]/);
     let authors = s, title = "", rest = "";
     if (tm) { authors = s.slice(0, tm.index).replace(/,\s*$/, ""); title = tm[1].replace(/,$/, ""); rest = s.slice(tm.index + tm[0].length).replace(/^,\s*/, ""); }
@@ -224,7 +306,7 @@ function parse(md) {
       if (AWARD.test(inner)) { badges.push(["award", inner.trim()]); return ""; }
       return all;
     }).replace(/\s{2,}/g, " ").trim().replace(/,\s*$/, "");
-    out.push({ year, type, authors, title, rest, links, badges, month: monthOf(rest) });
+    out.push({ year, type, authors, title, rest, links, badges, thumb, month: monthOf(rest) });
   });
   return out;
 }
@@ -247,17 +329,7 @@ function render() {
     // workshops, preprints and book chapters follow, each also newest first.
     const rank = t => (t === "Journal" || t === "Conference") ? 0 : order.indexOf(t);
     const list = items.filter(p => p.year === y).sort((a, b) => (rank(a.type) - rank(b.type)) || (b.month - a.month));
-    return `<section class="ygroup" id="y${y}"><h2>${y}<span class="count">${list.length}</span></h2>` + list.map(p => `
-      <article class="pub">
-        ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
-        <p class="au">${esc(p.authors).replace(/Se Young Chun/g, "<b>Se Young Chun</b>")}</p>
-        ${p.rest ? `<p class="ve">${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}</p>` : ""}
-        ${(p.also || []).map(a => `<p class="also">${a.raw ? "" : "Also presented at "}${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}</p>`).join("")}
-        <div class="row2"><span class="tag t-type">${p.type}</span>
-          ${p.badges.map(([k, b]) => `<span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}
-          ${p.links.map(([l, u]) => `<a class="lnk l-${["paper","report","project","code","video"].includes(l) ? l : "paper"}" href="${u}" target="_blank" rel="noopener">${l[0].toUpperCase() + l.slice(1)}</a>`).join("")}
-        </div>
-      </article>`).join("") + `</section>`;
+    return `<section class="ygroup" id="y${y}"><h2>${y}<span class="count">${list.length}</span></h2>` + list.map(card).join("") + `</section>`;
   }).join("");
 }
 
