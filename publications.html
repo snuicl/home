@@ -219,14 +219,14 @@ function render() {
   if (!items.length) { document.getElementById("list").innerHTML = '<p class="empty">No publications match these filters.</p>'; return; }
   const order = TYPE.map(t => t[0]);
   document.getElementById("list").innerHTML = years.map(y => {
-    // keep type order; inside Journal and Conference, newest month first (stable sort keeps file order for ties)
-    const list = items.filter(p => p.year === y).sort((a, b) =>
-      (order.indexOf(a.type) - order.indexOf(b.type)) ||
-      ((a.type === "Journal" || a.type === "Conference") ? b.month - a.month : 0));
+    // Journal and Conference papers are mixed and ordered by month (newest first);
+    // workshops, preprints and book chapters follow, each also newest first.
+    const rank = t => (t === "Journal" || t === "Conference") ? 0 : order.indexOf(t);
+    const list = items.filter(p => p.year === y).sort((a, b) => (rank(a.type) - rank(b.type)) || (b.month - a.month));
     return `<section class="ygroup" id="y${y}"><h2>${y}<span class="count">${list.length}</span></h2>` + list.map(p => `
       <article class="pub">
         ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
-        <p class="au">${esc(p.authors).replace(/S Y Chun/g, "<b>S Y Chun</b>")}</p>
+        <p class="au">${esc(p.authors).replace(/Se Young Chun/g, "<b>Se Young Chun</b>")}</p>
         ${p.rest ? `<p class="ve">${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b/, "$1<i>$2</i>")}</p>` : ""}
         ${(p.also || []).map(a => `<p class="also">Also presented at ${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}</p>`).join("")}
         <div class="row2"><span class="tag t-type">${p.type}</span>
