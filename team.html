@@ -492,7 +492,8 @@ const TEAM = {
       "ECCV24c",
       "CVPR23a",
       "ICCV23d"
-     ]
+     ],
+     "awards": "Internship at NVIDIA, USA (remote), Internship at Google, USA"
     },
     {
      "name": "Joonhee Lee",
@@ -578,7 +579,8 @@ const TEAM = {
       "PRL22",
       "IEEE Access19",
       "Sensors18"
-     ]
+     ],
+     "awards": "Visiting at SNU Hospital"
     },
     {
      "name": "Yong Hyeok Seo",
@@ -772,7 +774,7 @@ TEAM.groups.filter(g => g.title !== "Postdoc").forEach(g => {
 tabs.push(["alumni", "Alumni"]);
 html += `<section class="group" id="alumni"><h2>Alumni</h2>` + TEAM.alumni.map(a =>
   `<h3 style="margin:8px 0 6px;font-size:16px;color:var(--faint);font-weight:600">${a.title}</h3><ul class="alumni" style="margin-bottom:28px">` +
-  a.people.map(p => `<li><h3>${p.name}</h3><p class="now">${p.now}</p><p class="deg">${p.degree}</p>${pubList(p.pubs, p.first)}</li>`).join("") + `</ul>`).join("") +
+  a.people.map(p => `<li><h3>${p.name}</h3><p class="now">${p.now}</p><p class="deg">${p.degree}</p>${awardBadges(p.awards)}${pubList(p.pubs, p.first)}</li>`).join("") + `</ul>`).join("") +
   `<h3 style="margin:8px 0 12px;font-size:16px;color:var(--faint);font-weight:600">Undergraduate interns</h3><dl class="interns">` +
   TEAM.interns.map(i => `<dt>${i.year}</dt><dd>${i.names}</dd>`).join("") + `</dl></section>`;
 
