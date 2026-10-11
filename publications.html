@@ -114,7 +114,7 @@
 
   <div class="toolbar">
     <div class="chips" id="types" role="group" aria-label="Type"></div>
-    <div class="chips"><button class="chip-btn rec" id="rec" aria-pressed="false">Oral, Spotlight, Highlight and Awards</button></div>
+    <div class="chips"><button class="chip-btn rec" id="rec" aria-pressed="false">Oral, Spotlight, Highlight</button></div>
     <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search title, author, venue" aria-label="Search publications"></label>
   </div>
@@ -151,6 +151,16 @@ const HOT = /^(Spotlight|Highlight|Oral)$/i;
 const AWARD = /Award|Winner|Runner-up|Honorable|Cum Laude|Fellowship|Cover Article|Travel|Grant|place|Champion|Invited/i;
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 
+const MONTHS = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"];
+// venues whose month is not written yet ("Accepted at NeurIPS, 2026") fall back to the usual conference month
+const VENUE_MONTH = { NeurIPS: 12, ICML: 7, ICLR: 4, CVPR: 6, ICCV: 10, ECCV: 10, MICCAI: 9, AAAI: 2, WACV: 1, ICRA: 5 };
+function monthOf(s) {
+  const m = s.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(19|20)\d\d/i);
+  if (m) return MONTHS.indexOf(m[1].toLowerCase().slice(0, 3)) + 1;
+  for (const [v, mo] of Object.entries(VENUE_MONTH)) if (new RegExp("\\b" + v + "\\b").test(s)) return mo;
+  return 0;
+}
+
 function parse(md) {
   const out = []; let year = "", type = "";
   md.split("\n").forEach(line => {
@@ -173,7 +183,7 @@ function parse(md) {
       if (AWARD.test(inner)) { badges.push(["award", inner.trim()]); return ""; }
       return all;
     }).replace(/\s{2,}/g, " ").trim().replace(/,\s*$/, "");
-    out.push({ year, type, authors, title, rest, links, badges });
+    out.push({ year, type, authors, title, rest, links, badges, month: monthOf(rest) });
   });
   return out;
 }
@@ -185,14 +195,17 @@ function render() {
   const q = state.q.toLowerCase();
   const items = PUBS.filter(p =>
     (state.type === "All" || p.type === state.type) &&
-    (!state.rec || p.badges.length) &&
+    (!state.rec || p.badges.some(b => b[0] === "hot")) &&
     (!q || (p.title + " " + p.authors + " " + p.rest).toLowerCase().includes(q)));
   const years = [...new Set(items.map(p => p.year))];
   document.getElementById("years").innerHTML = '<span class="t">Year</span>' + years.map(y => `<a href="#y${y}">${y}</a>`).join("");
   if (!items.length) { document.getElementById("list").innerHTML = '<p class="empty">No publications match these filters.</p>'; return; }
   const order = TYPE.map(t => t[0]);
   document.getElementById("list").innerHTML = years.map(y => {
-    const list = items.filter(p => p.year === y).sort((a, b) => order.indexOf(a.type) - order.indexOf(b.type));
+    // keep type order; inside Journal and Conference, newest month first (stable sort keeps file order for ties)
+    const list = items.filter(p => p.year === y).sort((a, b) =>
+      (order.indexOf(a.type) - order.indexOf(b.type)) ||
+      ((a.type === "Journal" || a.type === "Conference") ? b.month - a.month : 0));
     return `<section class="ygroup" id="y${y}"><h2>${y}<span class="count">${list.length}</span></h2>` + list.map(p => `
       <article class="pub">
         ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
@@ -222,7 +235,9 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 const observe = () => document.querySelectorAll(".ygroup").forEach(s => io.observe(s));
 
 fetch("publications.md").then(r => r.text()).then(md => {
-  PUBS = parse(md);
+  // Types listed here are kept in publications.md but not shown on the page
+  const HIDE = ["Domestic", "Patent"];
+  PUBS = parse(md).filter(p => !HIDE.includes(p.type));
   const conf = PUBS.filter(p => p.type === "Conference" || p.type === "Journal").length;
   document.getElementById("summary").textContent = `${PUBS.length} items since 2004, including ${conf} journal and conference papers.`;
   buildTypes(); render(); observe();
