@@ -40,7 +40,13 @@
   .person .role { margin: 0; color: var(--primary-2); font-size: 14px; font-weight: 600; }
   .person .since { margin: 2px 0 8px; color: var(--faint); font-size: 13px; }
   .person .bg, .person .aw { margin: 0 0 6px; font-size: 13.5px; line-height: 1.5; }
-  .person .aw { color: #8a6a12; }
+  .bdg { display: flex; flex-wrap: wrap; gap: 4px; margin: 2px 0 8px; }
+  .mini { font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; line-height: 1.5; }
+  .mini.award { background: var(--sw-yellow); color: #8a6a12; border-radius: 6px; }
+  .mini.intern { background: var(--sw-blue); color: var(--primary-2); border-radius: 6px; }
+  .mini.hot { background: #fdecec; color: #c62828; font-size: 10.5px; padding: 1px 6px; }
+  .pv { white-space: nowrap; }
+  .more { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 600; }
   .pubs { margin: 0; font-size: 13px; line-height: 1.55; color: var(--faint); }
 
   .alumni { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; list-style: none; margin: 0; padding: 0; }
@@ -586,27 +592,43 @@ const photo = p => {
 window.nextSrc = img => { const n = JSON.parse(img.dataset.next || "[]"); if (n.length) { img.dataset.next = JSON.stringify(n.slice(1)); img.src = n[0]; } else img.remove(); };
 
 let html = "", tabs = [];
-const P = TEAM.pi;
-tabs.push(["faculty", "Faculty"]);
-html += `<section class="group" id="faculty"><h2>Faculty</h2>
-  <div class="pi">${photo(P)}<div>
-    <h3>${P.name}</h3><p class="role">${P.role}</p><p>${P.bg}</p>
-    <a class="btn ghost" href="https://icl.snu.ac.kr/pi">More about the PI</a></div></div></section>`;
 
-TEAM.groups.forEach(g => {
+// ---- small badges ----
+const esc2 = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+// awards / internships -> badges
+const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\d{4}\s|Internship)/).map(a => {
+  const k = /^Internship/i.test(a.trim()) ? "intern" : "award";
+  return `<span class="mini ${k}">${esc2(a.trim())}</span>`; }).join("") + `</div>`;
+// publications: "CVPR26b (Highlight)" -> "CVPR26b" + red badge
+const pubList = s => !s ? "" : `<p class="pubs">` + s.split(/,\s*/).map(x => {
+  const m = x.match(/^(.*?)\s*\((Spotlight|Highlight|Oral)\)\s*$/i);
+  return m ? `<span class="pv">${esc2(m[1])} <span class="mini hot">${m[2]}</span></span>` : `<span class="pv">${esc2(x)}</span>`;
+}).join(", ") + `</p>`;
+
+const personCard = (p, opts = {}) => `<article class="person${opts.nophoto ? " nophoto" : ""}">${opts.nophoto ? "" : photo(p)}
+  <h3>${p.name}</h3><p class="role">${p.role}</p>${p.since ? `<p class="since">Since ${p.since}</p>` : ""}
+  ${p.bg ? `<p class="bg">${p.bg}</p>` : ""}
+  ${awardBadges(p.awards)}
+  ${pubList(p.pubs)}
+  ${opts.link ? `<a class="more" href="${opts.link}">More about the PI</a>` : ""}</article>`;
+
+// Professor and postdocs share one row
+const P = TEAM.pi, post = TEAM.groups.find(g => g.title === "Postdoc");
+tabs.push(["professor-postdocs", "Professor & Postdocs"]);
+html += `<section class="group" id="professor-postdocs"><h2>Professor &amp; Postdocs</h2><div class="people">` +
+  personCard(P, { link: "https://icl.snu.ac.kr/pi" }) + (post ? post.people.map(p => personCard(p)).join("") : "") + `</div></section>`;
+
+TEAM.groups.filter(g => g.title !== "Postdoc").forEach(g => {
   const id = slug(g.title); tabs.push([id, g.title]);
+  const nophoto = g.title.startsWith("Undergraduate");
   html += `<section class="group" id="${id}"><h2>${g.title} <span class="n">${g.people.length}</span></h2><div class="people">` +
-    g.people.map(p => `<article class="person${g.title.startsWith("Undergraduate") ? " nophoto" : ""}">${g.title.startsWith("Undergraduate") ? "" : photo(p)}
-      <h3>${p.name}</h3><p class="role">${p.role}</p><p class="since">Since ${p.since}</p>
-      ${p.bg ? `<p class="bg">${p.bg}</p>` : ""}
-      ${p.awards ? `<p class="aw">${p.awards}</p>` : ""}
-      ${p.pubs ? `<p class="pubs">${highlight(p.pubs)}</p>` : ""}</article>`).join("") + `</div></section>`;
+    g.people.map(p => personCard(p, { nophoto })).join("") + `</div></section>`;
 });
 
 tabs.push(["alumni", "Alumni"]);
 html += `<section class="group" id="alumni"><h2>Alumni</h2>` + TEAM.alumni.map(a =>
   `<h3 style="margin:8px 0 6px;font-size:16px;color:var(--faint);font-weight:600">${a.title}</h3><ul class="alumni" style="margin-bottom:28px">` +
-  a.people.map(p => `<li><h3>${p.name}</h3><p class="now">${p.now}</p><p class="deg">${p.degree}</p><p class="pubs">${highlight(p.pubs)}</p></li>`).join("") + `</ul>`).join("") +
+  a.people.map(p => `<li><h3>${p.name}</h3><p class="now">${p.now}</p><p class="deg">${p.degree}</p>${pubList(p.pubs)}</li>`).join("") + `</ul>`).join("") +
   `<h3 style="margin:8px 0 12px;font-size:16px;color:var(--faint);font-weight:600">Undergraduate interns</h3><dl class="interns">` +
   TEAM.interns.map(i => `<dt>${i.year}</dt><dd>${i.names}</dd>`).join("") + `</dl></section>`;
 
