@@ -7,7 +7,7 @@
    ========================================================================== */
 const LINKS = {
   team:         "team.html",
-  publications: "https://icl.snu.ac.kr/publications",
+  publications: "publications.html",
   gallery:      "https://icl.snu.ac.kr/gallery",
   join:         "https://icl.snu.ac.kr/join-icl",
   news:         "https://icl.snu.ac.kr/news",
