@@ -34,6 +34,8 @@
   .ph { position: relative; aspect-ratio: 1 / 1; border-radius: 14px; overflow: hidden; background: var(--soft); display: grid; place-items: center; }
   .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .ph .ini { font-size: 34px; font-weight: 600; color: var(--primary-2); letter-spacing: 0.02em; }
+  .person.nophoto { padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; }
+  .person.nophoto h3 { margin-top: 0; }
   .person h3 { margin: 14px 0 2px; color: var(--ink); font-size: 17.5px; font-weight: 600; letter-spacing: -0.01em; }
   .person .role { margin: 0; color: var(--primary-2); font-size: 14px; font-weight: 600; }
   .person .since { margin: 2px 0 8px; color: var(--faint); font-size: 13px; }
@@ -540,31 +542,31 @@ const TEAM = {
    ========================================================================== */
 const KO = {
   "Se Young Chun": "전세영",
-  "Seongmin Hong": "",
-  "Haechang Lee": "",
-  "Byung Hyun Lee": "",
-  "Junseo Bang": "",
+  "Seongmin Hong": "홍성민",
+  "Haechang Lee": "이해창",
+  "Byung Hyun Lee": "이병현",
+  "Junseo Bang": "방준서",
   "Wongi Jeong": "정원기",
-  "Dong Ju Mun": "",
-  "Seunggyu Lee": "",
-  "Ji Ha Jang": "",
-  "Younguk Kim": "",
-  "Hayeon Kim": "",
+  "Dong Ju Mun": "문동주",
+  "Seunggyu Lee": "이승규",
+  "Ji Ha Jang": "장지하",
+  "Younguk Kim": "김영욱",
+  "Hayeon Kim": "김하연",
   "Hyewon Bae": "배혜원",
-  "Suh Yoon Jeon": "",
-  "Hoigi Seo": "",
-  "Woojae Han": "",
+  "Suh Yoon Jeon": "전서윤",
+  "Hoigi Seo": "서회기",
+  "Woojae Han": "한우재",
   "Kyeonghyun Lee": "이경현",
-  "Kyungryeol Lee": "",
-  "Joohoon Lee": "",
-  "Hyunjin Cho": "",
+  "Kyungryeol Lee": "이경렬",
+  "Joohoon Lee": "이주훈",
+  "Hyunjin Cho": "조현진",
   "Jaehyun Cho": "조재현",
-  "Jason Park": "",
-  "Junghun J. Kim": "",
-  "Chulwon Lee": "",
+  "Jason Park": "박재선",
+  "Junghun J. Kim": "김정훈",
+  "Chulwon Lee": "이철원",
   "Dohyun Mah": "마도현",
-  "Chaeeun Lee": "",
-  "Daewon Choi": "",
+  "Chaeeun Lee": "이채은",
+  "Daewon Choi": "최대원",
   "Youngwook Kim": "",
   "Yoonchae Choi": ""
 };
@@ -594,7 +596,7 @@ html += `<section class="group" id="faculty"><h2>Faculty</h2>
 TEAM.groups.forEach(g => {
   const id = slug(g.title); tabs.push([id, g.title]);
   html += `<section class="group" id="${id}"><h2>${g.title} <span class="n">${g.people.length}</span></h2><div class="people">` +
-    g.people.map(p => `<article class="person">${photo(p)}
+    g.people.map(p => `<article class="person${g.title.startsWith("Undergraduate") ? " nophoto" : ""}">${g.title.startsWith("Undergraduate") ? "" : photo(p)}
       <h3>${p.name}</h3><p class="role">${p.role}</p><p class="since">Since ${p.since}</p>
       ${p.bg ? `<p class="bg">${p.bg}</p>` : ""}
       ${p.awards ? `<p class="aw">${p.awards}</p>` : ""}
