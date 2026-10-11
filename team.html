@@ -569,7 +569,7 @@ const TEAM = {
       "ICRA20a",
       "ICRA20b"
      ],
-     "awards": "2020 NAVER PhD Fellowship Award"
+     "awards": "2020 NAVER PhD Fellowship Award, 7 Awards at CVPR NTIRE Challenges (2018, 2019)"
     },
     {
      "name": "Hanvit Kim",
@@ -742,7 +742,7 @@ let html = "", tabs = [];
 // ---- small badges ----
 const esc2 = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 // awards / internships -> badges
-const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\[?(\d{4}\s|Internship|Visiting))/).filter(a => a && !/^(\d{4}\s|Internship|Visiting)$/.test(a)).map(a => {
+const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\[?(?:\d{4}\s|\d+\s+Awards?|Internship|Visiting))/).filter(a => a).map(a => {
   a = a.trim(); const ln = a.match(/^\[(.+)\]\((\S+)\)$/), t = ln ? ln[1] : a;
   const k = /^(Internship|Visiting)/i.test(t) ? "intern" : "award";
   // [text](url) makes the badge a link
