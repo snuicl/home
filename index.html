@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ICL @ Seoul Nat'l Univ — Intelligent Computational Imaging Lab</title>
-<meta name="description" content="The Intelligent Computational Imaging Lab (ICL) at Seoul National University builds grounded AI that sees, reasons, and acts.">
+<meta name="description" content="The Intelligent Computational Imaging Lab (ICL) at Seoul National University builds grounded AI that sees, reasons, and acts, with algorithms that are both rigorous and efficient.">
 <meta property="og:title" content="ICL @ Seoul Nat'l Univ">
 <meta property="og:description" content="Grounded AI that sees, reasons, and acts.">
 <link rel="icon" href="images/ICL_logo.jpg">
@@ -225,7 +225,7 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <h2>Grounded AI that sees, reasons, and acts.</h2>
+      <h1>Grounded AI that sees, reasons, and acts.</h1>
       <p class="lede">ICL is rooted in computational imaging, where mathematically rigorous yet efficient optimization grounds every image in the physics of how it was measured. We carry that grounding into multimodal, multiscale representations and foundation models, designing algorithms that scale without giving up rigor. We close the loop with agents that act in the physical world and team with people, treating every input, measurement and human guidance alike, as valuable yet uncertain.</p>
       <div class="actions">
         <a class="btn primary" data-link="publications">Publications</a>
@@ -305,6 +305,8 @@ burger.addEventListener("click", () => {
    NEWS DATA — edit only this list to update the home page.
    type: grant | paper | award | talk | people   (sets the icon and color)
    image: optional, e.g. "images/news/neurips26.jpg" (if missing, an icon is shown)
+   fit: optional "contain" shows the whole image (no cropping); bg sets the color around it;
+        pad adds space around a logo, e.g. "8%"
    papers: optional list shown in the pop-up
    The first 4 items appear on the home page.
    ========================================================================== */
@@ -313,13 +315,13 @@ const NEWS = [
     type: "grant", date: "October 2026",
     title: "Selected for the Samsung Science & Technology Program",
     details: "The Samsung Science & Technology Foundation will support our project “Forgetting as a Fundamental Operation of Intelligence,” on selective consolidation for vision-language agents.",
-    image: "images/news/samsung.jpg"
+    image: "images/news/samsung.jpg", fit: "contain", bg: "#01183f"
   },
   {
     type: "paper", date: "September 2026",
     title: "Three papers accepted at NeurIPS 2026",
     details: "Three papers from ICL will appear at NeurIPS 2026, with one selected as a Spotlight.",
-    image: "images/news/neurips26.jpg",
+    image: "images/news/neurips26.svg", fit: "contain", bg: "#f6f2fa", pad: "8%",
     papers: [
       'H. Seo*, B. H. Lee*, M. Kim*, D. Mah, J. Lee, S. Y. Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” Spotlight. <a href="https://arxiv.org/abs/2610.04580">report</a> · <a href="https://seohoiki3215.github.io/DCAT_project_page/">project</a>',
       'J. Bang, D. Choi, D. J. Mun, S. Y. Chun, “FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems.”',
@@ -350,7 +352,7 @@ const LABEL = { grant: "Grant", paper: "Paper", award: "Award", talk: "Talk", pe
 
 const icon = (t) => `<svg class="i"><use href="#i-${t}"/></svg>`;
 const media = (n) => `<span class="big">${icon(n.type)}</span>` +
-  (n.image ? `<img src="${n.image}" alt="" onerror="this.remove()">` : "");
+  (n.image ? `<img src="${n.image}" alt="" style="${n.fit ? "object-fit:" + n.fit + ";" : ""}${n.bg ? "background:" + n.bg + ";" : ""}${n.pad ? "padding:" + n.pad + ";box-sizing:border-box;" : ""}" onerror="this.remove()">` : "");
 
 const grid = document.getElementById("news");
 NEWS.slice(0, HOME_COUNT).forEach((n, i) => {
