@@ -9,7 +9,7 @@ const LINKS = {
   team:         "team.html",
   publications: "publications.html",
   gallery:      "https://icl.snu.ac.kr/gallery",
-  join:         "https://icl.snu.ac.kr/join-icl",
+  join:         "join.html",
   news:         "https://icl.snu.ac.kr/news",
   github:       "https://github.com/",        // e.g. https://github.com/snu-icl
   huggingface:  "https://huggingface.co/"     // e.g. https://huggingface.co/snu-icl
