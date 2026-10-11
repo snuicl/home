@@ -1,7 +1,7 @@
 # ICL publications
 # Format: "## <year>", "### <type>", then one "- " line per item (same style as the old site).
 # Links: [[paper](url)] [[report](url)] [[project](url)] [[code](url)] [[video](url)]
-# Representative figure: [[image](images/publications/<file>.jpg)]  (16:10 recommended; without it a venue tile is shown)
+# Representative figure: [[image](images/publications/<file>.jpg)]  (16:10 recommended; papers without an image are shown without a figure column)
 # Recognition in parentheses is highlighted automatically: (Spotlight) (Highlight) (Oral) (Best Paper Award) ...
 
 ## 2026
@@ -14,7 +14,7 @@
 
 ### Conference (full papers)
 
-- Hoigi Seo*, Byung Hyun Lee*, Minjun Kim*, Dohyun Mah, Jongho Lee, Se Young Chun, "Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs," Accepted at NeurIPS, 2026 (*co-first authors) (Spotlight) [[report](https://arxiv.org/abs/2610.04580)] [[project](https://seohoiki3215.github.io/DCAT_project_page/)]
+- Hoigi Seo*, Byung Hyun Lee*, Minjun Kim*, Dohyun Mah, Jongho Lee, Se Young Chun, "Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs," Accepted at NeurIPS, 2026 (*co-first authors) (Spotlight) [[image](images/publications/dcat-neurips26.jpg)] [[report](https://arxiv.org/abs/2610.04580)] [[project](https://seohoiki3215.github.io/DCAT_project_page/)]
 - Junseo Bang, Daewon Choi, Dong Ju Mun, Se Young Chun, "FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems," Accepted at NeurIPS, 2026
 - Jinho Park, Se Young Chun, Mingoo Seok, "DictLLM: Post-training Compression of Large Language Model with Dictionary Kernels," Accepted at NeurIPS, 2026
 - Ji Ha Jang*, Hayeon Kim*, Chulwon Lee, Junghun J. Kim, Se Young Chun, "HyFL-CLIP: Hyperbolic Fine-Tuning of CLIP for Robust Long-Context Understanding," ECCV, Sep 2026 (*co-first authors) [[report](https://arxiv.org/abs/2607.00428)] [[project](https://janeyeon.github.io/hyflclip/)]

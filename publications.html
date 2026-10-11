@@ -41,7 +41,8 @@
   .ygroup > h2 { margin: 0 0 6px; color: var(--ink); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
   .count { color: var(--faint); font-size: 14px; font-weight: 500; margin-left: 8px; }
 
-  .pub { position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .pub { position: relative; display: grid; grid-template-columns: 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .pub.has-thumb { grid-template-columns: 200px 1fr; }
   .th { position: relative; aspect-ratio: 16 / 10; border-radius: 10px; overflow: hidden; background: #fff; border: 1px solid var(--line); align-self: start; }
   .th img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; }
   .th .ph-t { display: none; }
@@ -89,7 +90,7 @@
     .search input { width: 100%; }
     .layout { grid-template-columns: 1fr; gap: 0; }
     .years { display: none; }
-    .pub { grid-template-columns: 112px 1fr; gap: 14px; }
+    .pub.has-thumb { grid-template-columns: 112px 1fr; gap: 14px; }
     .has-medal .bd { padding-right: 0; }
     .medals { position: static; margin: 0 0 8px; }
     .medal { width: auto; flex-direction: row; gap: 4px; }
@@ -265,11 +266,11 @@ function card(p) {
   const medalAwards = awards.filter(a => !/^(Invited|Cover Article|AMPC select)/i.test(a));
   const medals = [...new Set(hot)].map(h => MEDAL(h.toLowerCase(), h)).concat(medalAwards.length ? [MEDAL("award", "Award", medalAwards.join("; "))] : []);
   const thumb = p.thumb
-    ? `<img src="${p.thumb}" alt="" loading="lazy" onerror="this.parentNode.classList.add('ph'); this.remove()">`
+    ? `<img src="${p.thumb}" alt="" loading="lazy" onerror="this.closest('.pub').classList.remove('has-thumb'); this.parentNode.remove()">`
     : "";
   return `
-  <article class="pub${medals.length ? " has-medal" : ""}">
-    <div class="th${p.thumb ? "" : " ph"}">${thumb}<span class="ph-t">${esc(venueShort(p))}<small>${p.year.split("-").pop()}</small></span></div>
+  <article class="pub${medals.length ? " has-medal" : ""}${p.thumb ? " has-thumb" : ""}">
+    ${p.thumb ? `<div class="th">${thumb}</div>` : ""}
     <div class="bd">
       ${medals.length ? `<div class="medals">${medals.join("")}</div>` : ""}
       ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
