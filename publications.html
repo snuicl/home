@@ -326,10 +326,8 @@ function render() {
   if (!items.length) { document.getElementById("list").innerHTML = '<p class="empty">No publications match these filters.</p>'; return; }
   const order = TYPE.map(t => t[0]);
   document.getElementById("list").innerHTML = years.map(y => {
-    // Journal and Conference papers are mixed and ordered by month (newest first);
-    // workshops, preprints and book chapters follow, each also newest first.
-    const rank = t => (t === "Journal" || t === "Conference") ? 0 : order.indexOf(t);
-    const list = items.filter(p => p.year === y).sort((a, b) => (rank(a.type) - rank(b.type)) || (b.month - a.month));
+    // all types are mixed and ordered by month, newest first (ties keep the file order)
+    const list = items.filter(p => p.year === y).sort((a, b) => b.month - a.month);
     return `<section class="ygroup" id="y${y}"><h2>${y}<span class="count">${list.length}</span></h2>` + list.map(card).join("") + `</section>`;
   }).join("");
 }
