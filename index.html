@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICL @ Seoul Nat'l Univ — Intelligent Computational Imaging Lab</title>
+<meta name="description" content="The Intelligent Computational Imaging Lab (ICL) at Seoul National University builds grounded AI that sees, reasons, and acts.">
+<meta property="og:title" content="ICL @ Seoul Nat'l Univ">
+<meta property="og:description" content="Grounded AI that sees, reasons, and acts.">
+<meta property="og:type" content="website">
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --navy: #243D89;
+    --navy-deep: #0F0F70;
+    --beige: #DCDAB2;
+    --beige-soft: #f4f3e6;
+    --ink: #1a1d24;
+    --body: #3b404a;
+    --muted: #6a707c;
+    --rule: #e3e6ee;
+    --tint: #eef1f8;
+    --paper: #fbfbfd;
+    --wrap: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: "Pretendard", -apple-system, "Segoe UI", "Noto Sans KR", Roboto, sans-serif; color: var(--body); background: #fff; font-size: 16px; line-height: 1.6; }
+  a { color: var(--navy); text-decoration: none; border-bottom: 1px solid rgba(36,61,137,.3); }
+  a:hover { border-bottom-color: var(--navy); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; border-radius: 3px; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
+  svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.92); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; border: 0; color: var(--ink); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; white-space: nowrap; }
+  .brand img { height: 28px; width: auto; }
+  nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  nav a { border: 0; color: var(--body); font-size: 15px; font-weight: 500; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--navy); }
+  nav a[aria-current="page"] { font-weight: 650; }
+
+  /* Hero */
+  .hero { padding: 84px 0 72px; }
+  .hero h1 { margin: 0 0 44px; color: var(--ink); font-size: clamp(38px, 6vw, 72px); line-height: 1.04; font-weight: 750; letter-spacing: -0.04em; max-width: 14ch; }
+  .hero-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: start; }
+  .lede { max-width: 60ch; margin: 0; font-size: 18px; line-height: 1.7; }
+  .lede + .lede { margin-top: 16px; }
+  .meta { max-width: 60ch; margin: 30px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 15px; color: var(--muted); }
+  .meta p { margin: 0 0 8px; }
+  .join { color: var(--ink); font-weight: 550; }
+
+  /* Sees → Reasons → Acts : a real sequence, drawn as a connected loop */
+  .loop { list-style: none; margin: 4px 0 0; padding: 0; position: relative; }
+  .loop::before { content: ""; position: absolute; left: 23px; top: 30px; bottom: 30px; width: 2px; background: linear-gradient(var(--navy), var(--navy)) no-repeat; background-size: 2px 100%; opacity: .18; }
+  .loop li { position: relative; display: grid; grid-template-columns: 48px 1fr; gap: 18px; padding: 0 0 26px; }
+  .loop li:last-child { padding-bottom: 0; }
+  .node { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--navy); border: 2px solid var(--navy); }
+  .loop li:nth-child(2) .node { background: var(--tint); }
+  .loop li:nth-child(3) .node { background: var(--navy); color: #fff; }
+  .loop h3 { margin: 2px 0 4px; color: var(--ink); font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+  .loop p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+
+  /* Section heading */
+  .sec { padding: 72px 0; border-top: 1px solid var(--rule); }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+  h2 { margin: 0; color: var(--ink); font-size: 28px; font-weight: 750; letter-spacing: -0.025em; }
+  .sec-head a { font-size: 15px; }
+
+  /* News */
+  .news-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; align-items: start; }
+  .featured { display: block; border: 0; border-radius: 14px; overflow: hidden; background: var(--paper); box-shadow: 0 1px 0 var(--rule), 0 0 0 1px var(--rule); color: inherit; }
+  .featured .media { aspect-ratio: 16 / 10; background: var(--navy-deep); position: relative; }
+  .featured .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .featured .media .fallback { position: absolute; inset: 0; display: none; place-items: center; color: rgba(255,255,255,.9); }
+  .featured .media .fallback svg.i { width: 64px; height: 64px; stroke-width: 1.3; }
+  .featured .media.noimg .fallback { display: grid; }
+  .featured .body { padding: 22px 24px 26px; }
+  .featured h3 { margin: 10px 0 8px; color: var(--ink); font-size: 21px; line-height: 1.35; font-weight: 700; letter-spacing: -0.015em; }
+  .featured p { margin: 0; font-size: 15px; color: var(--body); }
+
+  .tag { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .tag .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .tag time { font-weight: 500; color: var(--muted); }
+  .tag .sep { color: var(--rule); }
+  .k-grant { color: var(--navy); }
+  .k-paper { color: var(--navy); }
+  .k-award { color: #8a7a1e; }
+  .k-talk  { color: #5a4a8a; }
+  .k-people{ color: #2f6f62; }
+
+  .list { list-style: none; margin: 0; padding: 0; }
+  .row { display: grid; grid-template-columns: 46px 1fr auto; gap: 16px; align-items: start; padding: 16px 0; border-top: 1px solid var(--rule); }
+  .row:first-child { border-top: 0; padding-top: 4px; }
+  .badge { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; }
+  .badge.paper { background: var(--tint); color: var(--navy); }
+  .badge.award { background: var(--beige-soft); color: #8a7a1e; box-shadow: inset 0 0 0 1px var(--beige); }
+  .badge.talk { background: #f1eef8; color: #5a4a8a; }
+  .badge.people { background: #e9f4f1; color: #2f6f62; }
+  .row .title { display: block; margin: 4px 0 0; color: var(--ink); font-size: 16px; line-height: 1.45; font-weight: 600; letter-spacing: -0.005em; }
+  .thumb { width: 104px; height: 70px; border-radius: 8px; overflow: hidden; background: var(--tint); }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .toggle { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; font-size: 13.5px; font-weight: 550; color: var(--navy); }
+  .toggle svg.i { width: 16px; height: 16px; transition: transform .15s ease; }
+  details[open] .toggle svg.i { transform: rotate(180deg); }
+  details[open] .toggle .show { display: none; }
+  details:not([open]) .toggle .hide { display: none; }
+  .papers { margin: 10px 0 2px; padding: 12px 14px 12px 30px; background: var(--paper); border-radius: 8px; box-shadow: inset 0 0 0 1px var(--rule); font-size: 14px; line-height: 1.55; color: var(--body); }
+  .papers li { margin-bottom: 8px; }
+  .papers li:last-child { margin-bottom: 0; }
+  .note { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 1fr); gap: 16px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+  .gallery figure { margin: 0; scroll-snap-align: start; }
+  .gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: var(--tint); }
+  .gallery figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 44px; font-size: 13.5px; color: var(--muted); }
+  footer p { margin: 0 0 4px; }
+
+  @media (max-width: 900px) {
+    .bar { height: auto; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 0 10px; }
+    nav { width: 100%; overflow-x: auto; }
+    nav ul { gap: 20px; }
+    .hero { padding: 52px 0 48px; }
+    .hero h1 { margin-bottom: 32px; }
+    .hero-grid, .news-grid { grid-template-columns: 1fr; gap: 44px; }
+    .lede { font-size: 17px; }
+    .sec { padding: 52px 0; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 20px; }
+    .row { grid-template-columns: 40px 1fr; }
+    .badge { width: 40px; height: 40px; border-radius: 10px; }
+    .thumb { display: none; }
+    .gallery { grid-auto-columns: 82%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .toggle svg.i { transition: none; } }
+</style>
+</head>
+<body>
+
+<!-- Icon set (stroke icons) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01"/><path d="M16 16h.01"/></symbol>
+  <symbol id="i-paper" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="./"><img src="images/logo.png" alt="" onerror="this.remove()">ICL @ Seoul Nat'l Univ</a>
+    <!-- Links to the pages still on Google Sites. If the domain moves to GitHub, replace https://icl.snu.ac.kr/ with the Google Sites address. -->
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="https://icl.snu.ac.kr/members">Members</a></li>
+        <li><a href="https://icl.snu.ac.kr/publications">Publications</a></li>
+        <li><a href="https://icl.snu.ac.kr/teaching">Teaching</a></li>
+        <li><a href="https://icl.snu.ac.kr/workshops">Workshops</a></li>
+        <li><a href="https://icl.snu.ac.kr/join-icl">Join ICL</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="wrap hero">
+    <h1>Grounded AI that sees, reasons, and acts.</h1>
+    <div class="hero-grid">
+      <div>
+        <p class="lede">The Intelligent Computational Imaging Lab (ICL) is rooted in computational imaging, where rigorous mathematics grounds every image in the physics of how it was measured. That grounding now carries into learning multimodal, multiscale representations and building and adapting foundation models that stay faithful to the world they describe.</p>
+        <p class="lede">We close the loop with agents that act in the physical world and team with people, treating every input, measurement and human guidance alike, as valuable yet uncertain.</p>
+        <div class="meta">
+          <p>ICL is at the <a href="https://ece.snu.ac.kr/">Department of Electrical and Computer Engineering</a>, <a href="https://www.snu.ac.kr/">Seoul National University</a>, and is led by <a href="https://icl.snu.ac.kr/pi">Se Young Chun</a>. ICL is also affiliated with the <a href="https://gsai.snu.ac.kr/">Interdisciplinary Program in Artificial Intelligence</a>.</p>
+          <p class="join">We are looking for graduate students and undergraduate interns. <a href="https://icl.snu.ac.kr/join-icl">How to join</a></p>
+        </div>
+      </div>
+
+      <ol class="loop" aria-label="Research directions">
+        <li>
+          <span class="node"><svg class="i"><use href="#i-eye"/></svg></span>
+          <div><h3>Sees</h3><p>Computational imaging and inverse problems, with physics-based models and generative priors.</p></div>
+        </li>
+        <li>
+          <span class="node"><svg class="i"><use href="#i-layers"/></svg></span>
+          <div><h3>Reasons</h3><p>Multimodal, multiscale representations and foundation models that learn continually and know what to keep.</p></div>
+        </li>
+        <li>
+          <span class="node"><svg class="i"><use href="#i-bot"/></svg></span>
+          <div><h3>Acts</h3><p>Vision-language-action agents that work in the physical world alongside people and other AIs.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>News</h2>
+        <a href="https://icl.snu.ac.kr/news">See all news</a>
+      </div>
+
+      <div class="news-grid">
+        <!-- Featured (pinned) -->
+        <article class="featured">
+          <div class="media">
+            <img src="images/news/samsung.jpg" alt="" onerror="this.parentNode.classList.add('noimg'); this.remove()">
+            <span class="fallback"><svg class="i"><use href="#i-rocket"/></svg></span>
+          </div>
+          <div class="body">
+            <span class="tag k-grant"><span class="dot"></span>Grant <span class="sep">|</span> <time datetime="2026-10">Oct 2026</time></span>
+            <h3>Selected for the Samsung Science &amp; Technology Program</h3>
+            <p>The Samsung Science &amp; Technology Foundation will support our project “Forgetting as a Fundamental Operation of Intelligence,” on selective consolidation for vision-language agents.</p>
+          </div>
+        </article>
+
+        <!-- Recent items -->
+        <ul class="list">
+          <li class="row">
+            <span class="badge paper"><svg class="i"><use href="#i-paper"/></svg></span>
+            <div>
+              <span class="tag k-paper">Paper <span class="sep">|</span> <time datetime="2026-09">Sep 2026</time></span>
+              <details>
+                <summary>
+                  <span class="title">Three papers accepted at NeurIPS 2026, one selected as Spotlight</span>
+                  <span class="toggle"><span class="show">Show papers</span><span class="hide">Hide papers</span><svg class="i"><use href="#i-chev"/></svg></span>
+                </summary>
+                <ul class="papers">
+                  <li>H. Seo*, B. H. Lee*, M. Kim*, D. Mah, J. Lee, S. Y. Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” <span class="note">Spotlight</span> [<a href="https://arxiv.org/abs/2610.04580">report</a>] [<a href="https://seohoiki3215.github.io/DCAT_project_page/">project</a>]</li>
+                  <li>J. Bang, D. Choi, D. J. Mun, S. Y. Chun, “FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems.”</li>
+                  <li>J. Park, S. Y. Chun, M. Seok, “DictLLM: Post-training Compression of Large Language Model with Dictionary Kernels.”</li>
+                </ul>
+              </details>
+            </div>
+            <span class="thumb"><img src="images/news/neurips26.jpg" alt="" onerror="this.parentNode.remove()"></span>
+          </li>
+
+          <li class="row">
+            <span class="badge talk"><svg class="i"><use href="#i-mic"/></svg></span>
+            <div>
+              <span class="tag k-talk">Talk <span class="sep">|</span> <time datetime="2026-09">Sep 2026</time></span>
+              <span class="title">Invited keynote at the <a href="https://sites.google.com/view/beyondeuclidean/home">ECCV 2026 Beyond Euclidean Workshop</a></span>
+            </div>
+            <span class="thumb"><img src="images/news/eccv26-keynote.jpg" alt="" onerror="this.parentNode.remove()"></span>
+          </li>
+
+          <li class="row">
+            <span class="badge award"><svg class="i"><use href="#i-award"/></svg></span>
+            <div>
+              <span class="tag k-award">Award <span class="sep">|</span> <time datetime="2026-08">Aug 2026</time></span>
+              <span class="title">Wongi Jeong won a Youlchon AI Star award</span>
+            </div>
+            <span class="thumb"><img src="images/news/youlchon.jpg" alt="" onerror="this.parentNode.remove()"></span>
+          </li>
+
+          <li class="row">
+            <span class="badge award"><svg class="i"><use href="#i-award"/></svg></span>
+            <div>
+              <span class="tag k-award">Award <span class="sep">|</span> <time datetime="2026-06">Jun 2026</time></span>
+              <details>
+                <summary>
+                  <span class="title">“Erasing Thousands of Concepts” received the CVPR 2026 Compute Transparency Champion award</span>
+                  <span class="toggle"><span class="show">Details</span><span class="hide">Hide</span><svg class="i"><use href="#i-chev"/></svg></span>
+                </summary>
+                <ul class="papers">
+                  <li>H. Seo*, B. H. Lee*, J. Cho, S. Lim, S. Y. Chun, “Erasing Thousands of Concepts: Towards Scalable and Practical Concept Erasure for Text-to-Image Diffusion Models,” CVPR 2026. The highest recognition in CVPR’s Compute Reporting Initiative; also featured in <a href="https://www.popsci.co.kr/news/articleView.html?idxno=24647">Popular Science</a>.</li>
+                </ul>
+              </details>
+            </div>
+            <span class="thumb"><img src="images/news/cvpr26-award.jpg" alt="" onerror="this.parentNode.remove()"></span>
+          </li>
+
+          <li class="row">
+            <span class="badge paper"><svg class="i"><use href="#i-paper"/></svg></span>
+            <div>
+              <span class="tag k-paper">Paper <span class="sep">|</span> <time datetime="2026-06">Jun 2026</time></span>
+              <details>
+                <summary>
+                  <span class="title">One paper accepted at ECCV 2026</span>
+                  <span class="toggle"><span class="show">Show paper</span><span class="hide">Hide paper</span><svg class="i"><use href="#i-chev"/></svg></span>
+                </summary>
+                <ul class="papers">
+                  <li>J. H. Jang*, H. Kim*, C. Lee, J. J. Kim, S. Y. Chun, “HyFL-CLIP: Hyperbolic Fine-Tuning of CLIP for Robust Long-Context Understanding.” [<a href="https://arxiv.org/abs/2607.00428">report</a>] [<a href="https://janeyeon.github.io/hyflclip/">project</a>]</li>
+                </ul>
+              </details>
+            </div>
+            <span class="thumb"><img src="images/news/eccv26.jpg" alt="" onerror="this.parentNode.remove()"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFE AT ICL -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2>Life at ICL</h2></div>
+      <div class="gallery">
+        <figure><img src="images/photos/jeju-2026.jpg" alt="ICL members in Jeju" loading="lazy" onerror="this.parentNode.remove()"><figcaption>Jeju, June 2026</figcaption></figure>
+        <figure><img src="images/photos/cvpr-2026.jpg" alt="ICL attendees at CVPR 2026" loading="lazy" onerror="this.parentNode.remove()"><figcaption>CVPR 2026, June 2026</figcaption></figure>
+        <figure><img src="images/photos/snu-2026-02.jpg" alt="ICL members at SNU" loading="lazy" onerror="this.parentNode.remove()"><figcaption>SNU, February 2026</figcaption></figure>
+        <figure><img src="images/photos/iccv-2025.jpg" alt="ICL attendees at ICCV 2025" loading="lazy" onerror="this.parentNode.remove()"><figcaption>ICCV 2025, October 2025</figcaption></figure>
+        <figure><img src="images/photos/snu-2025-08.jpg" alt="ICL members at SNU" loading="lazy" onerror="this.parentNode.remove()"><figcaption>SNU, August 2025</figcaption></figure>
+        <figure><img src="images/photos/snu-2025-03.jpg" alt="ICL members at SNU" loading="lazy" onerror="this.parentNode.remove()"><figcaption>SNU, March 2025</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Intelligent Computational Imaging Lab, Department of Electrical and Computer Engineering, Seoul National University</p>
+    <p>© 2026 ICL</p>
+  </div>
+</footer>
+
+</body>
+</html>
