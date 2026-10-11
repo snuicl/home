@@ -46,6 +46,8 @@
   .mini.intern { background: var(--sw-blue); color: var(--primary-2); border-radius: 6px; }
   .mini.hot { background: #fdecec; color: #c62828; font-size: 10.5px; padding: 1px 6px; }
   .pv { white-space: nowrap; }
+  .pubs b { color: var(--ink); font-weight: 700; }
+  .pubs-note { margin: 4px 0 0; font-size: 13.5px; color: var(--faint); }
   .more { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 600; }
   .pubs { margin: 0; font-size: 13px; line-height: 1.55; color: var(--faint); }
 
@@ -106,7 +108,7 @@
 <main class="main">
   <section class="page-head">
     <h1>Team</h1>
-    <p>Current members and alumni of the Intelligent Computational Imaging Lab.</p>
+    <p>Current members and alumni of the Intelligent Computational Imaging Lab. Venues of first or co-first authored papers are shown in <b style="color:var(--ink)">bold</b>.</p>
     <nav class="tabs" id="tabs" aria-label="Sections"></nav>
   </section>
   <div id="team"></div>
@@ -147,7 +149,16 @@ const TEAM = {
      "bg": "PhD and BS in ECE, SNU",
      "awards": "2024 Qualcomm Innovation Fellowship Korea, 2025 ECE Outstanding PhD Dissertation Award",
      "pubs": "ICML26, CVPR26f, IMAVIS26, PRL25, NeurIPS24, ECCV24d, CVPR24, ICCV23b, AAAI23 (Oral)",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vgSeHFWHbvI55bDMHIlr3TvphqT5J2dTkfdIGfnNk-OaG9ySTi5_Elgbk9P1KiodOA-raLmTOWuUnZ6A5hwJ-tRvWC5E7F7qmOEwdP7zpTJ2KHNztbUxgLBfE5e5xGM_ZiNaS7HFXJYFp0vYo1kLdQcWQoVQEaRiieIzNP45qKl1DhsXIUfbdQLwLQXoM=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vgSeHFWHbvI55bDMHIlr3TvphqT5J2dTkfdIGfnNk-OaG9ySTi5_Elgbk9P1KiodOA-raLmTOWuUnZ6A5hwJ-tRvWC5E7F7qmOEwdP7zpTJ2KHNztbUxgLBfE5e5xGM_ZiNaS7HFXJYFp0vYo1kLdQcWQoVQEaRiieIzNP45qKl1DhsXIUfbdQLwLQXoM=w400",
+     "first": [
+      "CVPR26f",
+      "PRL25",
+      "NeurIPS24",
+      "ECCV24d",
+      "CVPR24",
+      "ICCV23b",
+      "AAAI23"
+     ]
     }
    ]
   },
@@ -161,7 +172,12 @@ const TEAM = {
      "bg": "With SK hynix. MS in Stats, Stanford. BS in AMS, Stony Brook",
      "awards": "",
      "pubs": "IMAVIS26, Access25c, Access25d, ICCV23a",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tAcBJBAD6P83KrJeicWl1gDXwL9V2VaJWyStZXBuA9WvsBPAKP_TFI4bP0TQ4W4aHe_r7o6NQmhlAnFV4IajEGSB-21ieUG0Aj7_1vH4uLjvLnBpMLTx1i44B888xC-dUzb5ZOdoa1bH397P1MhkN3nSnvfqVr70gb7c8WVLrvjBGrg46PbkRBgOnrQ7Q=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tAcBJBAD6P83KrJeicWl1gDXwL9V2VaJWyStZXBuA9WvsBPAKP_TFI4bP0TQ4W4aHe_r7o6NQmhlAnFV4IajEGSB-21ieUG0Aj7_1vH4uLjvLnBpMLTx1i44B888xC-dUzb5ZOdoa1bH397P1MhkN3nSnvfqVr70gb7c8WVLrvjBGrg46PbkRBgOnrQ7Q=w400",
+     "first": [
+      "IMAVIS26",
+      "Access25d",
+      "ICCV23a"
+     ]
     },
     {
      "name": "Byung Hyun Lee",
@@ -170,7 +186,16 @@ const TEAM = {
      "bg": "BS in ECE, UNIST",
      "awards": "Internship at Naver Cloud, 2025 Youlchon AI Star, 2025 Qualcomm Innovation Fellowship Korea Finalist",
      "pubs": "NeurIPS26a (Spotlight), CVPR26c, ICCV25a, Access25c, CVPR25b, ICLR25a, AAAI24 (Oral), ICCV23c, CVPR23b",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72uoKH-NhBSc5ZakOcmzM0dq-PnrNJMviB--1ynaPKwTHcd4vXzCqfVpoJoYwbvNHL3s_AR9kTzAMrBZH7v7Bj8ZbexoxDngyTO8CwIUcoBnt8YmQrg1laTarGeK0wpEZLArRzkfCQ04ybEERXpHVw5W5ssUhj538VypJfArnMbTp_BJVw0KoqVOqe4f=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72uoKH-NhBSc5ZakOcmzM0dq-PnrNJMviB--1ynaPKwTHcd4vXzCqfVpoJoYwbvNHL3s_AR9kTzAMrBZH7v7Bj8ZbexoxDngyTO8CwIUcoBnt8YmQrg1laTarGeK0wpEZLArRzkfCQ04ybEERXpHVw5W5ssUhj538VypJfArnMbTp_BJVw0KoqVOqe4f=w400",
+     "first": [
+      "NeurIPS26a",
+      "CVPR26c",
+      "ICCV25a",
+      "CVPR25b",
+      "ICLR25a",
+      "AAAI24",
+      "ICCV23c"
+     ]
     },
     {
      "name": "Junseo Bang",
@@ -179,7 +204,11 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "",
      "pubs": "NeurIPS26b, ICML26",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tLtd7_QTwsZWL3PeejLrCev-h6Vt3CMFc9Bmt0gyinYYW32m7In5XPWf8kNaiTWx-Brw_lu1QM-LtnUFX-M4PoaLqP12AEabiQvT5IxYKAkBFyykDga_2mwPQK4odvJhEmCteWldgTROow5_poi_nupi5rZRB3oAbmjAuP1xu_zHT2n7I6OeZBtaHE=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tLtd7_QTwsZWL3PeejLrCev-h6Vt3CMFc9Bmt0gyinYYW32m7In5XPWf8kNaiTWx-Brw_lu1QM-LtnUFX-M4PoaLqP12AEabiQvT5IxYKAkBFyykDga_2mwPQK4odvJhEmCteWldgTROow5_poi_nupi5rZRB3oAbmjAuP1xu_zHT2n7I6OeZBtaHE=w400",
+     "first": [
+      "NeurIPS26b",
+      "ICML26"
+     ]
     },
     {
      "name": "Wongi Jeong",
@@ -188,7 +217,14 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "2026 Youlchon AI Star",
      "pubs": "CVPR26d, CVPR26e (Highlight), ICCV25a, ICML25, CVPR25a, ICCV23a",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tWPEkaDCgillCshGm8pBWbQr3tLHLEd3Ey_uoS4wVmhlE5qBbyI0LoP9dAIKqUooJnfoGXYgG-2L7ugyNt88uWsheio_-J9-CQzRKvrShRwFc-t-A0CbD8aqD1sJm4GKqwM84iIrC5YeovmKJjInnWEI5aupJyWjbf9VvEciIc1URFADMdOhS0C_arBoM=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tWPEkaDCgillCshGm8pBWbQr3tLHLEd3Ey_uoS4wVmhlE5qBbyI0LoP9dAIKqUooJnfoGXYgG-2L7ugyNt88uWsheio_-J9-CQzRKvrShRwFc-t-A0CbD8aqD1sJm4GKqwM84iIrC5YeovmKJjInnWEI5aupJyWjbf9VvEciIc1URFADMdOhS0C_arBoM=w400",
+     "first": [
+      "CVPR26d",
+      "CVPR26e",
+      "ICML25",
+      "CVPR25a",
+      "ICCV23a"
+     ]
     },
     {
      "name": "Dong Ju Mun",
@@ -197,7 +233,11 @@ const TEAM = {
      "bg": "BS in LARSE/ECE, SNU",
      "awards": "",
      "pubs": "NeurIPS26b, ICML26, IMAVIS26",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72uT3LNl5fQtpppjG-csZ-uIpQ9UQ3r1UP0NuDp6uvPnLsz67Sy9Jl0-1bndBfH0UfvCi7GQrlHdK1iUhQYfF3Dg4aNqfEHgp4ebuOJwVcxAngzpOefmSxRzxX9rs0O1UXW2bNxmTXymyeXeGAsQOlPeK4eH_GmWiPauYodvv1VjiCb7frlVsPZ7_pvUiH7STg2fcgPTucZSVGR0tVI_3I1ypU72sCl5DghJbmcDPyU=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72uT3LNl5fQtpppjG-csZ-uIpQ9UQ3r1UP0NuDp6uvPnLsz67Sy9Jl0-1bndBfH0UfvCi7GQrlHdK1iUhQYfF3Dg4aNqfEHgp4ebuOJwVcxAngzpOefmSxRzxX9rs0O1UXW2bNxmTXymyeXeGAsQOlPeK4eH_GmWiPauYodvv1VjiCb7frlVsPZ7_pvUiH7STg2fcgPTucZSVGR0tVI_3I1ypU72sCl5DghJbmcDPyU=w400",
+     "first": [
+      "ICML26",
+      "IMAVIS26"
+     ]
     },
     {
      "name": "Seunggyu Lee",
@@ -215,7 +255,13 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "",
      "pubs": "ECCV26, CVPR26b (Highlight), ICCV25c, ECCV24a, ICCV23d",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72spXGrHiehiDKBzuynmNv7Rfkw09IArvN-fV-HtrYefulKBFEfVEscZ79IeGLYa2uMqx-_iCBMYht6xNpaiKiZHN5qKb4igsQ8mz3gr1dcCUO4Ao2ytcLyGRyisn3Y-i5E_4tX-ZEC8Ag9AoGLGcukbE-NXovI4mqvQMX4RLqheiTJjpsjdhPocDEr2kRU=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72spXGrHiehiDKBzuynmNv7Rfkw09IArvN-fV-HtrYefulKBFEfVEscZ79IeGLYa2uMqx-_iCBMYht6xNpaiKiZHN5qKb4igsQ8mz3gr1dcCUO4Ao2ytcLyGRyisn3Y-i5E_4tX-ZEC8Ag9AoGLGcukbE-NXovI4mqvQMX4RLqheiTJjpsjdhPocDEr2kRU=w400",
+     "first": [
+      "ECCV26",
+      "CVPR26b",
+      "ICCV25c",
+      "ECCV24a"
+     ]
     },
     {
      "name": "Younguk Kim",
@@ -233,7 +279,13 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "",
      "pubs": "ECCV26, CVPR26b (Highlight), ICCV25c, ICLR25b, ECCV24b, ECCV24c",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vNzyETYQtoUr7E1CJhjCvh4xyUT_6ViVpP_tslw4ZC2V-o0EPDtNLUbv5mwOJKfIj8bWaEqT6U2ySiuVRsO9F5AgFOZDKFGU4ZLu11h_sGbqjm7kH0QGRTbPikgs8qJQNKukzj2vhUgID57CNny3-CIxo7OSNyagvgFDkvnQDeinlENRo5lM-_u19icMU=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vNzyETYQtoUr7E1CJhjCvh4xyUT_6ViVpP_tslw4ZC2V-o0EPDtNLUbv5mwOJKfIj8bWaEqT6U2ySiuVRsO9F5AgFOZDKFGU4ZLu11h_sGbqjm7kH0QGRTbPikgs8qJQNKukzj2vhUgID57CNny3-CIxo7OSNyagvgFDkvnQDeinlENRo5lM-_u19icMU=w400",
+     "first": [
+      "ECCV26",
+      "CVPR26b",
+      "ICCV25c",
+      "ECCV24c"
+     ]
     },
     {
      "name": "Hyewon Bae",
@@ -251,7 +303,11 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "",
      "pubs": "CVPR26a (Highlight), ICCV25b, CVPR24, NeurIPS24",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72terwMp-ZKynRUe22uTUSL9lJWXYroFpOqzdV_S6f2CiJEXhukbSjlfU47W_5VUIKnFTk-HG_uRrBuuUtdKlIF2YiIhZ_qwZsXvikC0QSEYkGrFYj-Vv_nFjp8ZhHag2JVPY12vnakCG6UeHFTtc8M5PozWqWlP6L6UTetc946Vo85Ykd6JOnfOsfK8fPk=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72terwMp-ZKynRUe22uTUSL9lJWXYroFpOqzdV_S6f2CiJEXhukbSjlfU47W_5VUIKnFTk-HG_uRrBuuUtdKlIF2YiIhZ_qwZsXvikC0QSEYkGrFYj-Vv_nFjp8ZhHag2JVPY12vnakCG6UeHFTtc8M5PozWqWlP6L6UTetc946Vo85Ykd6JOnfOsfK8fPk=w400",
+     "first": [
+      "CVPR26a",
+      "ICCV25b"
+     ]
     },
     {
      "name": "Hoigi Seo",
@@ -260,7 +316,17 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "",
      "pubs": "NeurIPS26a (Spotlight), ICML26, CVPR26c, CVPR26d, CVPR26e (Highlight), Theranostics26, NeurIPS25, ICML25, CVPR25a, ECCV24a, ECCV24c",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72v4is2_VDFE01ovR_ku8vWVnz94VRMSC3T_03fXEhktOYvArzhEMP5Q2Ug9CKCHFUsGEdIss53uOaBJbAQrK1oRfiMe3D1hhRgadsfcVGkg1SP8GFg6xcqE7OnSQockTtBrFM4rInGGTykcTZhondeOAKo3DCfN179cHUodThz4PpNWzjdtq8xGGk0g=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72v4is2_VDFE01ovR_ku8vWVnz94VRMSC3T_03fXEhktOYvArzhEMP5Q2Ug9CKCHFUsGEdIss53uOaBJbAQrK1oRfiMe3D1hhRgadsfcVGkg1SP8GFg6xcqE7OnSQockTtBrFM4rInGGTykcTZhondeOAKo3DCfN179cHUodThz4PpNWzjdtq8xGGk0g=w400",
+     "first": [
+      "NeurIPS26a",
+      "CVPR26c",
+      "CVPR26d",
+      "NeurIPS25",
+      "ICML25",
+      "CVPR25a",
+      "ECCV24a",
+      "ECCV24c"
+     ]
     },
     {
      "name": "Woojae Han",
@@ -287,7 +353,11 @@ const TEAM = {
      "bg": "BS in ECE, SNU",
      "awards": "",
      "pubs": "CVPR26e (Highlight), PRL25, CVPR25a",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vb2RpATbvwrVPMAIIDFOjSNZF0XJaSYMVoGsGBAiDNG7P-RO1zUoigRMSGfjbX4PmILK1WrdY3EJB-z6mjeK8wEpOvVnbn3OiCjvRat0O59qETUw_NfZhrnyKRjU8atsRpH1iHbUHUi07-_TxdXDAYJO3NfvgtvlCxzeXqm29DHf_xd13fwE_0OFWaHxdZkvQUTQ_rIauQQ0crhyhdXZ_QIJkfhxYad5oy_UKpBEc=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vb2RpATbvwrVPMAIIDFOjSNZF0XJaSYMVoGsGBAiDNG7P-RO1zUoigRMSGfjbX4PmILK1WrdY3EJB-z6mjeK8wEpOvVnbn3OiCjvRat0O59qETUw_NfZhrnyKRjU8atsRpH1iHbUHUi07-_TxdXDAYJO3NfvgtvlCxzeXqm29DHf_xd13fwE_0OFWaHxdZkvQUTQ_rIauQQ0crhyhdXZ_QIJkfhxYad5oy_UKpBEc=w400",
+     "first": [
+      "CVPR26e",
+      "PRL25"
+     ]
     },
     {
      "name": "Joohoon Lee",
@@ -337,7 +407,11 @@ const TEAM = {
      "bg": "With Samsung MX. BS in CS, Hongik",
      "awards": "",
      "pubs": "ECCV26, CVPR26a (Highlight), CVPR26b (Highlight), CVPR26f",
-     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72sfQyqPXstP4AuC9WbdrIytIqxygW-Hgv3vQqOAIjG8NqPhQlPVGwQIAVet6gsvCvVA-1IamPvmny-SChPeLX7BEFA1OP6RmrYoMh2oZi1bJ68bvZqHavKyfUB3jFF9vBWW8mXMqGh-Els0ZptxEmezq7XD1R05z1B9rzKjqjio67XtveIaTNTv_ih7YQU=w400"
+     "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72sfQyqPXstP4AuC9WbdrIytIqxygW-Hgv3vQqOAIjG8NqPhQlPVGwQIAVet6gsvCvVA-1IamPvmny-SChPeLX7BEFA1OP6RmrYoMh2oZi1bJ68bvZqHavKyfUB3jFF9vBWW8mXMqGh-Els0ZptxEmezq7XD1R05z1B9rzKjqjio67XtveIaTNTv_ih7YQU=w400",
+     "first": [
+      "CVPR26a",
+      "CVPR26f"
+     ]
     },
     {
      "name": "Chulwon Lee",
@@ -409,37 +483,70 @@ const TEAM = {
      "name": "Gwanghyun Kim",
      "degree": "PhD in ECE, 2026",
      "now": "Research Scientist, NVIDIA, USA",
-     "pubs": "CVPR26a (Highlight), IMAVIS26, ICCV25b, ICCV25d, ECCV24c, CVPR23a, ICCV23d"
+     "pubs": "CVPR26a (Highlight), IMAVIS26, ICCV25b, ICCV25d, ECCV24c, CVPR23a, ICCV23d",
+     "first": [
+      "CVPR26a",
+      "ICCV25b",
+      "ICCV25d",
+      "ECCV24c",
+      "CVPR23a",
+      "ICCV23d"
+     ]
     },
     {
      "name": "Joonhee Lee",
      "degree": "PhD in ECE, 2026",
      "now": "Researcher, LG Display, Korea",
-     "pubs": "Access25a"
+     "pubs": "Access25a",
+     "first": [
+      "Access25a"
+     ]
     },
     {
      "name": "Sungjin Lim",
      "degree": "MS in IPAI, 2026",
      "now": "Researcher, Samsung DS, Korea",
-     "pubs": "Access26, CVPR26c, CVPR25b, ICLR25a"
+     "pubs": "Access26, CVPR26c, CVPR25b, ICLR25a",
+     "first": [
+      "Access26",
+      "CVPR25b",
+      "ICLR25a"
+     ]
     },
     {
      "name": "Dong Un Kang",
      "degree": "PhD in ECE, 2025 (MS in EE, UNIST, 2021)",
      "now": "Research Fellow, Siemens Healthineers, USA",
-     "pubs": "Access26, Access25b, ICLR25a, ICLR25b, NeurIPS25, ECCV24c, MedIA23, ECCV20 (Spotlight)"
+     "pubs": "Access26, Access25b, ICLR25a, ICLR25b, NeurIPS25, ECCV24c, MedIA23, ECCV20 (Spotlight)",
+     "first": [
+      "Access26",
+      "Access25b",
+      "ICLR25b",
+      "NeurIPS25",
+      "ECCV24c",
+      "MedIA23",
+      "ECCV20"
+     ]
     },
     {
      "name": "Hyunwoo Lee",
      "degree": "MS in ECE, 2025",
      "now": "Researcher, Samsung Research, Korea",
-     "pubs": "IMAVIS26, Access25b, Access25c"
+     "pubs": "IMAVIS26, Access25b, Access25c",
+     "first": [
+      "IMAVIS26",
+      "Access25b",
+      "Access25c"
+     ]
     },
     {
      "name": "Okchul Jung",
      "degree": "MS in ECE, 2023",
      "now": "Researcher, LG Electronics, Korea",
-     "pubs": "ICCV23c"
+     "pubs": "ICCV23c",
+     "first": [
+      "ICCV23c"
+     ]
     }
    ]
   },
@@ -450,25 +557,46 @@ const TEAM = {
      "name": "Dongwon Park",
      "degree": "Postdoc in IPAI, SNU, 2024; PhD in ECE, 2023; MS in ECE, 2019",
      "now": "Researcher, Samsung Research, Korea",
-     "pubs": "ECCV24b, ICCV23a, CVPR23b, CVPR21, ECCV20 (Spotlight), ICRA20a, ICRA20b"
+     "pubs": "ECCV24b, ICCV23a, CVPR23b, CVPR21, ECCV20 (Spotlight), ICRA20a, ICRA20b",
+     "first": [
+      "ECCV24b",
+      "ICCV23a",
+      "CVPR23b",
+      "ECCV20",
+      "ICRA20a",
+      "ICRA20b"
+     ]
     },
     {
      "name": "Hanvit Kim",
      "degree": "PhD in ECE, 2022; MS in ECE, 2018",
      "now": "Researcher, ETRI, Korea",
-     "pubs": "IEEE T-MI23, PRL22, IEEE T-MI20, IEEE Access19, Sensors18"
+     "pubs": "IEEE T-MI23, PRL22, IEEE T-MI20, IEEE Access19, Sensors18",
+     "first": [
+      "IEEE T-MI23",
+      "PRL22",
+      "IEEE Access19",
+      "Sensors18"
+     ]
     },
     {
      "name": "Yong Hyeok Seo",
      "degree": "MS in ECE, 2021",
      "now": "Researcher, KETI, Korea",
-     "pubs": "ICRA20a, ICRA20b"
+     "pubs": "ICRA20a, ICRA20b",
+     "first": [
+      "ICRA20a"
+     ]
     },
     {
      "name": "Kwanyoung Kim",
      "degree": "MS in ECE, 2020",
      "now": "PhD, Bio and Brain Engineering, KAIST; Assistant Professor, GIST, Korea",
-     "pubs": "CVPR21, IEEE JSTSP20"
+     "pubs": "CVPR21, IEEE JSTSP20",
+     "first": [
+      "CVPR21",
+      "IEEE JSTSP20"
+     ]
     },
     {
      "name": "Won Jae Hong",
@@ -486,25 +614,38 @@ const TEAM = {
      "name": "Magauiya Zhussip",
      "degree": "MS in ECE, 2019",
      "now": "Researcher, Huawei Research Center, Russia",
-     "pubs": "NeurIPS19, CVPR19"
+     "pubs": "NeurIPS19, CVPR19",
+     "first": [
+      "NeurIPS19",
+      "CVPR19"
+     ]
     },
     {
      "name": "Shakarim Soltanayev",
      "degree": "MS in ECE, 2019",
      "now": "Researcher, Sony Interactive Entertainment, UK",
-     "pubs": "IEEE JSTSP20, NeurIPS19, CVPR19, NeurIPS18"
+     "pubs": "IEEE JSTSP20, NeurIPS19, CVPR19, NeurIPS18",
+     "first": [
+      "NeurIPS18"
+     ]
     },
     {
      "name": "Thanh Quoc Phan",
      "degree": "MS in ECE, 2018",
      "now": "PhD student, BME, Catholic University of America, USA",
-     "pubs": "PRL22, IEEE T-MI20"
+     "pubs": "PRL22, IEEE T-MI20",
+     "first": [
+      "PRL22"
+     ]
     },
     {
      "name": "Minh Phuong Nguyen",
      "degree": "MS in ECE, 2016",
      "now": "PhD student, Biomedical Imaging, TU Delft, Netherlands",
-     "pubs": "IEEE T-MI20, IEEE T-IP17, SciRprt16"
+     "pubs": "IEEE T-MI20, IEEE T-IP17, SciRprt16",
+     "first": [
+      "IEEE T-IP17"
+     ]
     }
    ]
   }
@@ -600,16 +741,18 @@ const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\d{4}\s
   const k = /^Internship/i.test(a.trim()) ? "intern" : "award";
   return `<span class="mini ${k}">${esc2(a.trim())}</span>`; }).join("") + `</div>`;
 // publications: "CVPR26b (Highlight)" -> "CVPR26b" + red badge
-const pubList = s => !s ? "" : `<p class="pubs">` + s.split(/,\s*/).map(x => {
+// first-author and co-first-author venues (listed in "first") are shown in bold
+const pubList = (s, first = []) => !s ? "" : `<p class="pubs">` + s.split(/,\s*/).map(x => {
   const m = x.match(/^(.*?)\s*\((Spotlight|Highlight|Oral)\)\s*$/i);
-  return m ? `<span class="pv">${esc2(m[1])} <span class="mini hot">${m[2]}</span></span>` : `<span class="pv">${esc2(x)}</span>`;
+  const code = (m ? m[1] : x).trim(), v = first.includes(code) ? `<b>${esc2(code)}</b>` : esc2(code);
+  return `<span class="pv">${v}${m ? ` <span class="mini hot">${m[2]}</span>` : ""}</span>`;
 }).join(", ") + `</p>`;
 
 const personCard = (p, opts = {}) => `<article class="person${opts.nophoto ? " nophoto" : ""}">${opts.nophoto ? "" : photo(p)}
   <h3>${p.name}</h3><p class="role">${p.role}</p>${p.since ? `<p class="since">Since ${p.since}</p>` : ""}
   ${p.bg ? `<p class="bg">${p.bg}</p>` : ""}
   ${awardBadges(p.awards)}
-  ${pubList(p.pubs)}
+  ${pubList(p.pubs, p.first)}
   ${opts.link ? `<a class="more" href="${opts.link}">More about the PI</a>` : ""}</article>`;
 
 // Professor and postdocs share one row
@@ -628,7 +771,7 @@ TEAM.groups.filter(g => g.title !== "Postdoc").forEach(g => {
 tabs.push(["alumni", "Alumni"]);
 html += `<section class="group" id="alumni"><h2>Alumni</h2>` + TEAM.alumni.map(a =>
   `<h3 style="margin:8px 0 6px;font-size:16px;color:var(--faint);font-weight:600">${a.title}</h3><ul class="alumni" style="margin-bottom:28px">` +
-  a.people.map(p => `<li><h3>${p.name}</h3><p class="now">${p.now}</p><p class="deg">${p.degree}</p>${pubList(p.pubs)}</li>`).join("") + `</ul>`).join("") +
+  a.people.map(p => `<li><h3>${p.name}</h3><p class="now">${p.now}</p><p class="deg">${p.degree}</p>${pubList(p.pubs, p.first)}</li>`).join("") + `</ul>`).join("") +
   `<h3 style="margin:8px 0 12px;font-size:16px;color:var(--faint);font-weight:600">Undergraduate interns</h3><dl class="interns">` +
   TEAM.interns.map(i => `<dt>${i.year}</dt><dd>${i.names}</dd>`).join("") + `</dl></section>`;
 
