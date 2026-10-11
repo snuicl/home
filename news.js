@@ -27,7 +27,7 @@ const NEWS = [
     bg: "#f6f2fa",
     pad: "6%",
     papers: [
-      "Hoigi Seo*, Byung Hyun Lee*, Minjun Kim*, Dohyun Mah, Jongho Lee, Se Young Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” <span class=\"mini hot\">Spotlight</span> <a href=\"https://arxiv.org/abs/2610.04580\">report</a> · <a href=\"https://seohoiki3215.github.io/DCAT_project_page/\">project</a>",
+      "Hoigi Seo*, Byung Hyun Lee*, Minjun Kim*, Dohyun Mah, Jongho Lee, Se Young Chun, “Strong Helps Weak: Directional Cross-Modal Alignment Transfer in Multi-modal LLMs.” <span class=\"mini hot\">Spotlight</span> <a href=\"https://arxiv.org/abs/2610.04580\">report</a> <a href=\"https://seohoiki3215.github.io/DCAT_project_page/\">project</a>",
       "Junseo Bang, Daewon Choi, Dong Ju Mun, Se Young Chun, “FLINT: Coupling Proximal Initialization and Bounded Stochasticity for Flow-Matching Inverse Problems.”",
       "Jinho Park, Se Young Chun, Mingoo Seok, “DictLLM: Post-training Compression of Large Language Model with Dictionary Kernels.”"
     ]
@@ -58,7 +58,7 @@ const NEWS = [
     title: "One paper accepted at ECCV 2026",
     details: "Our paper on hyperbolic fine-tuning of CLIP for long-context understanding will appear at ECCV 2026.",
     papers: [
-      "Ji Ha Jang*, Hayeon Kim*, Chulwon Lee, Junghun J. Kim, Se Young Chun, “HyFL-CLIP: Hyperbolic Fine-Tuning of CLIP for Robust Long-Context Understanding.” <a href=\"https://arxiv.org/abs/2607.00428\">report</a> · <a href=\"https://janeyeon.github.io/hyflclip/\">project</a>"
+      "Ji Ha Jang*, Hayeon Kim*, Chulwon Lee, Junghun J. Kim, Se Young Chun, “HyFL-CLIP: Hyperbolic Fine-Tuning of CLIP for Robust Long-Context Understanding.” <a href=\"https://arxiv.org/abs/2607.00428\">report</a> <a href=\"https://janeyeon.github.io/hyflclip/\">project</a>"
     ]
   },
   {
@@ -86,15 +86,14 @@ const NEWS = [
     title: "One paper accepted at ICML 2026",
     details: "Our paper on diffusion posterior sampling for inverse problems will appear at ICML 2026.",
     papers: [
-      "Junseo Bang*, Dong Ju Mun*, Hoigi Seo, Seongmin Hong, Se Young Chun, “Triadic Dynamics Aware Diffusion Posterior Sampling for Inverse Problems: Optimizing Guidance and Stochasticity Schedules.” <a href=\"https://arxiv.org/abs/2605.26470\">report</a> · <a href=\"https://mundongju.github.io/TriPS/\">project</a>"
+      "Junseo Bang*, Dong Ju Mun*, Hoigi Seo, Seongmin Hong, Se Young Chun, “Triadic Dynamics Aware Diffusion Posterior Sampling for Inverse Problems: Optimizing Guidance and Stochasticity Schedules.” <a href=\"https://arxiv.org/abs/2605.26470\">report</a> <a href=\"https://mundongju.github.io/TriPS/\">project</a>"
     ]
   },
   {
     type: "people",
     date: "April 2026",
     title: "Se Young Chun to serve as a NeurIPS 2026 Area Chair",
-    details: "Se Young Chun will serve as an Area Chair of NeurIPS 2026.",
-    image: "images/news/neurips26.png"
+    details: "Se Young Chun will serve as an Area Chair of NeurIPS 2026."
   },
   {
     type: "people",
@@ -108,13 +107,13 @@ const NEWS = [
     title: "Seven CVPR 2026 papers, including three <span class=\"hl\">Highlights</span>",
     details: "Seven papers from ICL were accepted at CVPR 2026, and three of them were selected as Highlights.",
     papers: [
-      "Gwanghyun Kim*, Junghun J. Kim*, Suh Yoon Jeon*, Jason Park, Se Young Chun, “Human Interaction-Aware 3D Reconstruction from a Single Image.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2604.05436\">report</a> · <a href=\"https://jongheean11.github.io/HUG3D_project/\">project</a>",
-      "Hayeon Kim*, Ji Ha Jang*, Junghun J. Kim, Se Young Chun, “Uncertainty-guided Compositional Alignment with Part-to-Whole Semantic Representativeness in Hyperbolic Vision-Language Models.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2603.22042\">report</a> · <a href=\"https://jeeit17.github.io/UNCHA-project_page/\">project</a>",
-      "Hoigi Seo*, Byung Hyun Lee*, Jaehyun Cho, Sungjin Lim, Se Young Chun, “Erasing Thousands of Concepts: Towards Scalable and Practical Concept Erasure for Text-to-Image Diffusion Models.” <a href=\"https://arxiv.org/abs/2604.16481\">report</a> · <a href=\"https://seohoiki3215.github.io/ETC_project_page/\">project</a>",
-      "Wongi Jeong*, Hoigi Seo*, Se Young Chun, “Training-free, Perceptually Consistent Low-Resolution Previews with High-Resolution Image for Efficient Workflows of Diffusion Models.” <a href=\"https://arxiv.org/abs/2604.09227\">report</a> · <a href=\"https://ignoww.github.io/Preview_project/\">project</a>",
-      "Wongi Jeong*, Kyungryeol Lee*, Hoigi Seo, Se Young Chun, “Training-free Mixed-Resolution Latent Upsampling for Spatially Accelerated Diffusion Transformers.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2507.08422\">report</a> · <a href=\"https://ignoww.github.io/RALU_project/\">project</a>",
-      "Seongmin Hong*, Junghun J. Kim*, Daehyeop Kim, Insoo Chung, Se Young Chun, “DiffBMP: Differentiable Rendering with Bitmap Primitives.” <a href=\"https://arxiv.org/abs/2602.22625\">report</a> · <a href=\"https://diffbmp.com\">project</a>",
-      "Jinho Park, Se Young Chun, Mingoo Seok, “AdaRadar: Rate Adaptive Spectral Compression for Radar-based Perception.” <a href=\"https://arxiv.org/abs/2603.17979\">report</a> · <a href=\"https://jp4327.github.io/adaradar/\">project</a>"
+      "Gwanghyun Kim*, Junghun J. Kim*, Suh Yoon Jeon*, Jason Park, Se Young Chun, “Human Interaction-Aware 3D Reconstruction from a Single Image.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2604.05436\">report</a> <a href=\"https://jongheean11.github.io/HUG3D_project/\">project</a>",
+      "Hayeon Kim*, Ji Ha Jang*, Junghun J. Kim, Se Young Chun, “Uncertainty-guided Compositional Alignment with Part-to-Whole Semantic Representativeness in Hyperbolic Vision-Language Models.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2603.22042\">report</a> <a href=\"https://jeeit17.github.io/UNCHA-project_page/\">project</a>",
+      "Hoigi Seo*, Byung Hyun Lee*, Jaehyun Cho, Sungjin Lim, Se Young Chun, “Erasing Thousands of Concepts: Towards Scalable and Practical Concept Erasure for Text-to-Image Diffusion Models.” <a href=\"https://arxiv.org/abs/2604.16481\">report</a> <a href=\"https://seohoiki3215.github.io/ETC_project_page/\">project</a>",
+      "Wongi Jeong*, Hoigi Seo*, Se Young Chun, “Training-free, Perceptually Consistent Low-Resolution Previews with High-Resolution Image for Efficient Workflows of Diffusion Models.” <a href=\"https://arxiv.org/abs/2604.09227\">report</a> <a href=\"https://ignoww.github.io/Preview_project/\">project</a>",
+      "Wongi Jeong*, Kyungryeol Lee*, Hoigi Seo, Se Young Chun, “Training-free Mixed-Resolution Latent Upsampling for Spatially Accelerated Diffusion Transformers.” <span class=\"mini hot\">Highlight</span> <a href=\"https://arxiv.org/abs/2507.08422\">report</a> <a href=\"https://ignoww.github.io/RALU_project/\">project</a>",
+      "Seongmin Hong*, Junghun J. Kim*, Daehyeop Kim, Insoo Chung, Se Young Chun, “DiffBMP: Differentiable Rendering with Bitmap Primitives.” <a href=\"https://arxiv.org/abs/2602.22625\">report</a> <a href=\"https://diffbmp.com\">project</a>",
+      "Jinho Park, Se Young Chun, Mingoo Seok, “AdaRadar: Rate Adaptive Spectral Compression for Radar-based Perception.” <a href=\"https://arxiv.org/abs/2603.17979\">report</a> <a href=\"https://jp4327.github.io/adaradar/\">project</a>"
     ]
   },
   {
@@ -165,7 +164,7 @@ const NEWS = [
     title: "Papers accepted at Image and Vision Computing, IEEE Access and IEEE TCI",
     details: "One paper was accepted at Image and Vision Computing (IF 4.2), and two collaboration papers at IEEE Access (IF 3.6) and IEEE Transactions on Computational Imaging (IF 4.8).",
     papers: [
-      "Haechang Lee*, Dong Ju Mun*, Hyunwoo Lee*, Kyung Chul Lee, Seongmin Hong, Gwanghyun Kim, Seung Ah Lee**, Se Young Chun**, “Fidelity-Preserving Zero-shot Diffusion Models for Highly Ill-posed Inverse Problems in Lensless Imaging,” Image and Vision Computing. <a href=\"https://doi.org/10.1016/j.imavis.2025.105786\">paper</a> · <a href=\"https://github.com/mundongju/Dilack\">code</a>",
+      "Haechang Lee*, Dong Ju Mun*, Hyunwoo Lee*, Kyung Chul Lee, Seongmin Hong, Gwanghyun Kim, Seung Ah Lee**, Se Young Chun**, “Fidelity-Preserving Zero-shot Diffusion Models for Highly Ill-posed Inverse Problems in Lensless Imaging,” Image and Vision Computing. <a href=\"https://doi.org/10.1016/j.imavis.2025.105786\">paper</a> <a href=\"https://github.com/mundongju/Dilack\">code</a>",
       "J H Yoon, H G Park, M J Kim, H H Jeong, Se Young Chun, S Y Ji, J H Lee, “Clinical dementia rating classification using integrated vision and language information,” IEEE Access. <a href=\"https://doi.org/10.1109/ACCESS.2025.3624215\">paper</a>",
       "T Hong, Z Xu, Se Young Chun, L Hernandez-Garcia, J A Fessler, “Convergent Complex Quasi-Newton Proximal Methods for Gradient-Driven Denoisers in Compressed Sensing MRI Reconstruction,” IEEE Transactions on Computational Imaging. <a href=\"https://doi.org/10.1109/TCI.2025.3625052\">paper</a>"
     ]
@@ -213,6 +212,26 @@ function renderNews(count) {
   });
 }
 
+
+// paper links in the pop-up use the same icon buttons as the Publications page
+const LINK_ICON = {
+  paper:   '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+  report:  '<path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  project: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  code:    '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
+  video:   '<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>'
+};
+const LINK_LABEL = { paper: "Paper", report: "arXiv", project: "Project", code: "Code", video: "Video" };
+function paperHtml(p) {
+  const btns = [];
+  const text = p.replace(/<a href="([^"]+)">(paper|report|project|code|video)<\/a>/gi, (_, u, l) => {
+    l = l.toLowerCase();
+    btns.push(`<a class="lnk l-${l}" href="${u}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24">${LINK_ICON[l]}</svg>${LINK_LABEL[l]}</a>`);
+    return "";
+  }).replace(/(\s*·\s*)+$/, "").replace(/\s*·\s*(?=\s*$)/, "").trim();
+  return text + (btns.length ? `<span class="btns">${btns.join("")}</span>` : "");
+}
+
 const modal = document.getElementById("modal");
 function openNews(i) {
   const n = NEWS[i];
@@ -223,7 +242,7 @@ function openNews(i) {
   document.getElementById("m-date").textContent = n.date;
   document.getElementById("m-details").innerHTML = n.details;
   const ul = document.getElementById("m-papers");
-  ul.innerHTML = (n.papers || []).map(p => `<li>${p}</li>`).join("");
+  ul.innerHTML = (n.papers || []).map(p => `<li>${paperHtml(p)}</li>`).join("");
   ul.style.display = n.papers ? "" : "none";
   modal.showModal();
 }
