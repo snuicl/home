@@ -43,6 +43,7 @@
   .bdg { display: flex; flex-wrap: wrap; gap: 4px; margin: 2px 0 8px; }
   .mini { font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 999px; line-height: 1.5; }
   .mini.award { background: var(--sw-yellow); color: #8a6a12; border-radius: 6px; }
+  a.mini:hover { text-decoration: underline; }
   .mini.intern { background: var(--sw-blue); color: var(--primary-2); border-radius: 6px; }
   .mini.hot { background: #fdecec; color: #c62828; font-size: 10.5px; padding: 1px 6px; }
   .pv { white-space: nowrap; }
@@ -493,7 +494,7 @@ const TEAM = {
       "CVPR23a",
       "ICCV23d"
      ],
-     "awards": "Internship at NVIDIA, USA (remote), Internship at Google, USA"
+     "awards": "Internship at NVIDIA, USA (remote), Internship at Google, USA, 2023 Youlchon AI Star, [2023 Qualcomm Innovation Fellowship Korea](https://www.qualcomm.com/research/university-relations/innovation-fellowship/winners)"
     },
     {
      "name": "Joonhee Lee",
@@ -567,7 +568,8 @@ const TEAM = {
       "ECCV20",
       "ICRA20a",
       "ICRA20b"
-     ]
+     ],
+     "awards": "2020 NAVER PhD Fellowship Award"
     },
     {
      "name": "Hanvit Kim",
@@ -740,9 +742,11 @@ let html = "", tabs = [];
 // ---- small badges ----
 const esc2 = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 // awards / internships -> badges
-const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\d{4}\s|Internship|Visiting)/).map(a => {
-  const k = /^(Internship|Visiting)/i.test(a.trim()) ? "intern" : "award";
-  return `<span class="mini ${k}">${esc2(a.trim())}</span>`; }).join("") + `</div>`;
+const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\[?(\d{4}\s|Internship|Visiting))/).filter(a => a && !/^(\d{4}\s|Internship|Visiting)$/.test(a)).map(a => {
+  a = a.trim(); const ln = a.match(/^\[(.+)\]\((\S+)\)$/), t = ln ? ln[1] : a;
+  const k = /^(Internship|Visiting)/i.test(t) ? "intern" : "award";
+  // [text](url) makes the badge a link
+  return ln ? `<a class="mini ${k}" href="${ln[2]}" target="_blank" rel="noopener">${esc2(t)}</a>` : `<span class="mini ${k}">${esc2(t)}</span>`; }).join("") + `</div>`;
 // publications: "CVPR26b (Highlight)" -> "CVPR26b" + red badge
 // first-author and co-first-author venues (listed in "first") are shown in bold
 const pubList = (s, first = []) => !s ? "" : `<p class="pubs">` + s.split(/,\s*/).map(x => {
