@@ -1,16 +1,14 @@
 /* ==========================================================================
    LINKS — every menu, button and icon on this page reads its address here.
    Change an address once and it updates everywhere.
-   (Team, Publications, Gallery, Join Us and News are still on Google Sites.
-    If the domain moves to GitHub, replace https://icl.snu.ac.kr with the
-    Google Sites address.)
+   All pages now live in this repository.
    ========================================================================== */
 const LINKS = {
   team:         "team.html",
   publications: "publications.html",
-  gallery:      "https://icl.snu.ac.kr/gallery",
+  gallery:      "gallery.html",
   join:         "join.html",
-  news:         "https://icl.snu.ac.kr/news",
+  news:         "news.html",
   github:       "https://github.com/",        // e.g. https://github.com/snu-icl
   huggingface:  "https://huggingface.co/"     // e.g. https://huggingface.co/snu-icl
 };
