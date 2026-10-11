@@ -60,6 +60,8 @@
   .mini { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; margin-left: 2px; }
   .mini.hot { background: #fdecec; color: #c62828; }
   .mini.award { background: var(--sw-yellow); color: #8a6a12; }
+  .mini.note { background: var(--soft); color: var(--text); }
+  .mini { display: inline; line-height: 1.9; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
   .pub .aw { margin: 6px 0 0; font-size: 13.5px; color: #8a6a12; font-weight: 600; line-height: 1.5; }
 
   .medals { position: absolute; top: 20px; right: 0; display: flex; gap: 6px; }
@@ -272,9 +274,8 @@ function card(p) {
       ${medals.length ? `<div class="medals">${medals.join("")}</div>` : ""}
       ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
       <p class="au">${esc(p.authors).replace(/Se Young Chun/g, "<b>Se Young Chun</b>")}</p>
-      ${p.rest ? `<p class="ve"><span class="tp">${p.type}</span>${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}${[...new Set(hot)].map(x => ` <span class="mini hot">${esc(x)}</span>`).join("")}</p>` : ""}
+      ${p.rest ? `<p class="ve"><span class="tp">${p.type}</span>${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}${[...new Set(hot)].map(x => ` <span class="mini hot">${esc(x)}</span>`).join("")}${awards.map(a => ` <span class="mini ${medalAwards.includes(a) ? "award" : "note"}">${esc(a)}</span>`).join("")}</p>` : ""}
       ${(p.also || []).map(a => `<p class="also">${a.raw ? "" : "Also presented at "}${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="mini ${k}">${esc(b)}</span>`).join("")}</p>`).join("")}
-      ${awards.length ? `<p class="aw">${awards.map(esc).join("<br>")}</p>` : ""}
       ${p.links.length ? `<div class="btns">${p.links.map(btn).join("")}</div>` : ""}
     </div>
   </article>`;
