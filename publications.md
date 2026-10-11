@@ -1,7 +1,7 @@
 # ICL publications
 # Format: "## <year>", "### <type>", then one "- " line per item (same style as the old site).
 # Links: [[paper](url)] [[report](url)] [[project](url)] [[code](url)] [[video](url)]
-# Representative figure: [[image](images/publications/<file>.jpg)]  (16:10 recommended; papers without an image are shown without a figure column)
+# Representative figure: [[image](images/publications/<file>.jpg)]  (square 1:1 recommended; papers without an image are shown without a figure column)
 # Recognition in parentheses is highlighted automatically: (Spotlight) (Highlight) (Oral) (Best Paper Award) ...
 
 ## 2026
