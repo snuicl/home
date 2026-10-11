@@ -148,7 +148,7 @@ const TEAM = {
      "since": "Sep 2025",
      "role": "Postdoc, INMC",
      "bg": "PhD and BS in ECE, SNU",
-     "awards": "2024 Qualcomm Innovation Fellowship Korea, 2025 ECE Outstanding PhD Dissertation Award",
+     "awards": "Visiting at Univ of Michigan, USA, 2024 Qualcomm Innovation Fellowship Korea, 2025 ECE Outstanding PhD Dissertation Award",
      "pubs": "ICML26, CVPR26f, IMAVIS26, PRL25, NeurIPS24, ECCV24d, CVPR24, ICCV23b, AAAI23 (Oral)",
      "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vgSeHFWHbvI55bDMHIlr3TvphqT5J2dTkfdIGfnNk-OaG9ySTi5_Elgbk9P1KiodOA-raLmTOWuUnZ6A5hwJ-tRvWC5E7F7qmOEwdP7zpTJ2KHNztbUxgLBfE5e5xGM_ZiNaS7HFXJYFp0vYo1kLdQcWQoVQEaRiieIzNP45qKl1DhsXIUfbdQLwLQXoM=w400",
      "first": [
@@ -216,7 +216,7 @@ const TEAM = {
      "since": "Mar 2022",
      "role": "MS/PhD student, ECE",
      "bg": "BS in ECE, SNU",
-     "awards": "2026 Youlchon AI Star",
+     "awards": "Visiting at Cornell Tech, USA, 2026 Youlchon AI Star",
      "pubs": "CVPR26d, CVPR26e (Highlight), ICCV25a, ICML25, CVPR25a, ICCV23a",
      "web": "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72tWPEkaDCgillCshGm8pBWbQr3tLHLEd3Ey_uoS4wVmhlE5qBbyI0LoP9dAIKqUooJnfoGXYgG-2L7ugyNt88uWsheio_-J9-CQzRKvrShRwFc-t-A0CbD8aqD1sJm4GKqwM84iIrC5YeovmKJjInnWEI5aupJyWjbf9VvEciIc1URFADMdOhS0C_arBoM=w400",
      "first": [
@@ -738,8 +738,8 @@ let html = "", tabs = [];
 // ---- small badges ----
 const esc2 = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 // awards / internships -> badges
-const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\d{4}\s|Internship)/).map(a => {
-  const k = /^Internship/i.test(a.trim()) ? "intern" : "award";
+const awardBadges = s => !s ? "" : `<div class="bdg">` + s.split(/,\s*(?=\d{4}\s|Internship|Visiting)/).map(a => {
+  const k = /^(Internship|Visiting)/i.test(a.trim()) ? "intern" : "award";
   return `<span class="mini ${k}">${esc2(a.trim())}</span>`; }).join("") + `</div>`;
 // publications: "CVPR26b (Highlight)" -> "CVPR26b" + red badge
 // first-author and co-first-author venues (listed in "first") are shown in bold
