@@ -178,6 +178,30 @@ function mergeWorkshops(list) {
   });
 }
 
+// A preprint that was later published (same title, or the same arXiv number, or "superseded by arXiv:...")
+// is shown under the published item instead of as a separate entry.
+const arxivIds = s => (s.match(/\d{4}\.\d{4,5}/g) || []);
+function mergePreprints(list) {
+  const pubs = list.filter(p => p.type !== "Preprint");
+  const rank = t => (t === "Journal" || t === "Conference") ? 0 : 1;
+  return list.filter(p => {
+    if (p.type !== "Preprint" || !p.title) return true;
+    const own = arxivIds(p.links.map(l => l[1]).join(" ") + " " + p.rest.split(/superseded/i)[0]);
+    const later = (p.rest.match(/superseded by (arXiv:\S+)/i) || [])[1];
+    const want = later ? arxivIds(later) : own;
+    const cands = pubs.filter(t =>
+      norm(t.title) === norm(p.title) ||
+      want.some(id => arxivIds(t.links.map(l => l[1]).join(" ")).includes(id)));
+    if (!cands.length) return true;
+    const t = cands.sort((a, b) => rank(a.type) - rank(b.type))[0];
+    const venue = p.rest.replace(/\s*\(\*+[^)]*\)/g, "").replace(/\s*\(superseded by [^)]*\)/i, "").trim();
+    const label = norm(t.title) === norm(p.title) ? "Preprint: " + venue : "Earlier version: “" + p.title + ",” " + venue;
+    (t.also = t.also || []).push({ venue: label, raw: true, badges: [], links: p.links });
+    if (!t.links.some(l => l[0] === "report")) p.links.filter(l => l[0] === "report").forEach(l => t.links.push(l));
+    return false;
+  });
+}
+
 function parse(md) {
   const out = []; let year = "", type = "";
   md.split("\n").forEach(line => {
@@ -227,8 +251,8 @@ function render() {
       <article class="pub">
         ${p.title ? `<p class="ttl">${esc(p.title)}</p>` : ""}
         <p class="au">${esc(p.authors).replace(/Se Young Chun/g, "<b>Se Young Chun</b>")}</p>
-        ${p.rest ? `<p class="ve">${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b/, "$1<i>$2</i>")}</p>` : ""}
-        ${(p.also || []).map(a => `<p class="also">Also presented at ${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}</p>`).join("")}
+        ${p.rest ? `<p class="ve">${esc(p.rest).replace(/(Accepted at )?(NeurIPS|ICML|ICLR|CVPR|ICCV|ECCV|AAAI|MICCAI|WACV|ICRA)\b(?!\s*W)/, "$1<i>$2</i>")}</p>` : ""}
+        ${(p.also || []).map(a => `<p class="also">${a.raw ? "" : "Also presented at "}${esc(a.venue)}${a.badges.map(([k, b]) => ` <span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}</p>`).join("")}
         <div class="row2"><span class="tag t-type">${p.type}</span>
           ${p.badges.map(([k, b]) => `<span class="tag ${k === "hot" ? "t-hot" : "t-award"}">${esc(b)}</span>`).join("")}
           ${p.links.map(([l, u]) => `<a class="lnk l-${["paper","report","project","code","video"].includes(l) ? l : "paper"}" href="${u}" target="_blank" rel="noopener">${l[0].toUpperCase() + l.slice(1)}</a>`).join("")}
@@ -255,7 +279,7 @@ const observe = () => document.querySelectorAll(".ygroup").forEach(s => io.obser
 fetch("publications.md").then(r => r.text()).then(md => {
   // Types listed here are kept in publications.md but not shown on the page
   const HIDE = ["Domestic", "Patent"];
-  PUBS = mergeWorkshops(parse(md).filter(p => !HIDE.includes(p.type)));
+  PUBS = mergePreprints(mergeWorkshops(parse(md).filter(p => !HIDE.includes(p.type))));
   const conf = PUBS.filter(p => p.type === "Conference" || p.type === "Journal").length;
   document.getElementById("summary").textContent = `${PUBS.length} items since 2004, including ${conf} journal and conference papers.`;
   buildTypes(); render(); observe();
