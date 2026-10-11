@@ -7,7 +7,7 @@
 <meta name="description" content="The Intelligent Computational Imaging Lab (ICL) at Seoul National University builds grounded AI that sees, reasons, and acts.">
 <meta property="og:title" content="ICL @ Seoul Nat'l Univ">
 <meta property="og:description" content="Grounded AI that sees, reasons, and acts.">
-<link rel="icon" href="images/logo.png">
+<link rel="icon" href="images/ICL_logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +39,10 @@
   .bar { max-width: var(--max); margin: 0 auto; padding: 0 40px; height: 84px; display: flex; align-items: center; gap: 44px; }
   .brand { margin-right: auto; display: flex; align-items: center; gap: 12px; color: var(--ink); font-weight: 700; font-size: 19px; letter-spacing: -0.015em; white-space: nowrap; transition: color .25s ease; }
   .brand:hover { text-decoration: none; color: var(--primary); }
-  .brand img { height: 40px; width: auto; display: block; }
+  .brand img { height: 44px; width: auto; display: block; border-radius: 6px; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand .name { font-size: 17px; font-weight: 700; color: inherit; letter-spacing: -0.015em; }
+  .brand .univ { font-size: 13px; font-weight: 500; color: var(--faint); letter-spacing: 0; }
   .menu { display: flex; align-items: center; gap: 44px; }
   .menu a { position: relative; color: var(--ink); font-size: 16px; font-weight: 500; transition: color .25s ease; }
   .menu a::after { content: ""; position: absolute; left: 50%; bottom: -10px; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: var(--primary); opacity: 0; transition: opacity .25s ease; }
@@ -144,12 +147,15 @@
   footer p { margin: 0 0 4px; }
 
   /* ===== Responsive ===== */
+  @media (max-width: 1180px) { .bar { gap: 28px; } .menu { gap: 28px; } }
   @media (max-width: 1080px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 36px 28px; } }
   @media (max-width: 900px) {
     .main, .bar { padding-left: 20px; padding-right: 20px; }
     .bar { height: 64px; gap: 16px; }
-    .brand { font-size: 17px; }
-    .brand img { height: 30px; }
+    .brand { gap: 10px; min-width: 0; }
+    .brand img { height: 34px; }
+    .brand .name { font-size: 14px; white-space: normal; }
+    .brand .univ { font-size: 11.5px; }
     .burger { display: flex; order: 3; }
     .icons { gap: 16px; }
     .menu { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 6px 20px 14px; background: #fff; border-bottom: 1px solid var(--line); box-shadow: 0 12px 24px rgba(15,15,40,.08); display: none; }
@@ -196,7 +202,7 @@
 
 <header>
   <div class="bar">
-    <a class="brand" href="./" aria-label="ICL home"><img src="images/ICL_logo.jpg" alt="ICL logo" onerror="if(!this.dataset.r){this.dataset.r=1;this.src='https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vsykfOqWYsiAyy9VSV6KUHC7mpEzxdo5yLAviqVU0ZbzUxyb9enl8uMNMmBbnWXBp5wJy4YBpvdOdlvsSGH9f7wBPKuUMmbUNosiVeUJT7pgx-_9dfc5dRjXEXEz6JYcUzauSgpf9GVTjPlSUYUKeUegcXzfY2PbAVxHkRBDNkv_EMpJXnWynSYBmImD8=w400';}else{this.remove();}">ICL @ Seoul Nat'l Univ</a>
+    <a class="brand" href="./" aria-label="ICL home"><img src="images/ICL_logo.jpg" alt="ICL logo" onerror="if(!this.dataset.r){this.dataset.r=1;this.src='https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vsykfOqWYsiAyy9VSV6KUHC7mpEzxdo5yLAviqVU0ZbzUxyb9enl8uMNMmBbnWXBp5wJy4YBpvdOdlvsSGH9f7wBPKuUMmbUNosiVeUJT7pgx-_9dfc5dRjXEXEz6JYcUzauSgpf9GVTjPlSUYUKeUegcXzfY2PbAVxHkRBDNkv_EMpJXnWynSYBmImD8=w400';}else{this.remove();}"><span class="brand-text"><span class="name">Intelligent Computational Imaging Lab</span><span class="univ">Seoul National University</span></span></a>
     <nav class="menu" id="menu" aria-label="Main">
       <a data-link="team">Team</a>
       <a data-link="publications">Publications</a>
@@ -219,11 +225,8 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <p class="eyebrow">Intelligent Computational Imaging Lab</p>
       <h1>Grounded AI that sees, reasons, and acts.</h1>
-      <p class="lede">ICL is rooted in computational imaging, where rigorous mathematics grounds every image in the physics of how it was measured. That grounding now carries into learning multimodal, multiscale representations and building and adapting foundation models that stay faithful to the world they describe.</p>
-      <p class="lede">We close the loop with agents that act in the physical world and team with people, treating every input, measurement and human guidance alike, as valuable yet uncertain.</p>
-      <p class="affil">Department of Electrical and Computer Engineering and Interdisciplinary Program in Artificial Intelligence, Seoul National University. Led by <a href="https://icl.snu.ac.kr/pi">Se Young Chun</a>.</p>
+      <p class="lede">ICL is rooted in computational imaging, where rigorous mathematics grounds every image in the physics of how it was measured. We carry that grounding into multimodal, multiscale representations and foundation models, and close the loop with agents that act in the physical world and team with people, treating every input, measurement and human guidance alike, as valuable yet uncertain.</p>
       <div class="actions">
         <a class="btn primary" data-link="publications">Publications</a>
         <a class="btn ghost" data-link="join">Join Us</a>
