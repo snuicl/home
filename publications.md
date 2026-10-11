@@ -133,9 +133,9 @@
 ### Conference (short papers, abstracts or workshop papers)
 
 - Vlad Hosu et al. (including Joonhee Lee, Junseo Bang, Se Young Chun), "AIM 2024 Challenge on UHD Blind Photo Quality Assessment," ECCV Workshops (AIM), Sep 2024 [[report](https://arxiv.org/abs/2409.16271)]
-- Jinho Park, Se Young Chun, Mingoo Seok, "Ultra-lightweight Visual-Inertial Odometry with Noise Robust Test-time Adaptation," ECCV Workshops (VCAD) Extended Abstract, Sep 2024 (Oral)
+- Jinho Park, Se Young Chun, Mingoo Seok, "UL-VIO: Ultra-Lightweight Visual-Inertial Odometry with Noise Robust Test-Time Adaptation," ECCV Workshops (VCAD) Extended Abstract, Sep 2024 (Oral)
 - Ji Ha Jang*, Hoigi Seo*, Se Young Chun, "INTRA: Interaction Relationship-aware Weakly Supervised Affordance Grounding," ECCV Workshops (ACVR) Extended Abstract, Sep 2024 (*co-first authors) (Oral)
-- Seongmin Hong, J H Bae, Jongho Lee**, Se Young Chun**, "Uncertainty-Adaptive Selection of Sampling-Reconstruction for Fourier Compressed Sensing," ECCV Workshops (UnCV) Extended Abstract, Sep 2024 (**co-corresponding authors)
+- Seongmin Hong, J H Bae, Jongho Lee**, Se Young Chun**, "Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing," ECCV Workshops (UnCV) Extended Abstract, Sep 2024 (**co-corresponding authors)
 - Hwihun Jeong, Se Young Chun, Jongho Lee, "MOST: MR reconstruction Optimization for multiple downStream Tasks via continual learning," ISMRM, May 2024 (Oral, Magna Cum Laude)
 - Hanvit Kim, Zongyu Li, Jiye Son, Jeffrey A. Fessler, Yuni K. Dewaraja, Se Young Chun, “Physics-Guided Deep Scatter Estimation by Weak Supervision for Quantitative SPECT,” IEEE ICASSP, Apr 2024, journal presentation of IEEE Transactions on Medical Imaging 42(10):2961-2973 [[paper](https://doi.org/10.1109/TMI.2023.3270868)]
 
